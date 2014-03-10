@@ -10,7 +10,7 @@ gem 'email_validator'
 gem 'flutie'
 gem 'high_voltage'
 gem 'jquery-rails'
-gem 'neat'
+
 
 gem 'rack-timeout'
 gem 'rails', '>= 4.0.0'
@@ -20,6 +20,9 @@ gem 'simple_form'
 gem 'title'
 gem 'uglifier'
 gem 'unicorn'
+
+gem 'bootstrap-sass', '~> 3.1.0'
+gem 'haml'
 
 group :development do
   gem 'better_errors'

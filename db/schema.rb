@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140310225523) do
+ActiveRecord::Schema.define(version: 20140310230007) do
+
+  create_table "beacons", force: true do |t|
+    t.string   "uuid"
+    t.integer  "major"
+    t.integer  "minor"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "beacons", ["major"], name: "index_beacons_on_major", using: :btree
+  add_index "beacons", ["minor"], name: "index_beacons_on_minor", using: :btree
+  add_index "beacons", ["uuid", "major", "minor"], name: "index_beacons_on_uuid_and_major_and_minor", unique: true, using: :btree
+  add_index "beacons", ["uuid"], name: "index_beacons_on_uuid", using: :btree
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
