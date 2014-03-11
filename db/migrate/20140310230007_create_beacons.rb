@@ -1,16 +1,13 @@
 class CreateBeacons < ActiveRecord::Migration
   def change
     create_table :beacons do |t|
-      t.string :uuid
-      t.integer :major
-      t.integer :minor
+      t.string :uuid, index: true
+      t.integer :major, index: true
+      t.integer :minor, index: true
+      t.references :item, index: true
 
       t.timestamps
     end
-
-    add_index :beacons, :uuid
-    add_index :beacons, :major
-    add_index :beacons, :minor
 
     add_index :beacons, [:uuid, :major, :minor], :unique => true
   end

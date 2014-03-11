@@ -6,6 +6,7 @@
       <th>Spec</th>
       <th>Name</th>
       <th>Description</th>
+      <th>Beacon</th>
       <th></th>
       <th></th>
       <th></th>
@@ -18,6 +19,7 @@
         <td><%= item.spec %></td>
         <td><%= item.name %></td>
         <td><%= item.description %></td>
+        <td><%= item.beacon.major.to_s + ' ' + item.beacon.minor.to_s %></td>
         <td><%= link_to 'Show', item %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
         <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>

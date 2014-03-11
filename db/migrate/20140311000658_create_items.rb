@@ -4,6 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :spec
       t.string :name
       t.string :description
+      t.references :beacon, index: true
 
       t.timestamps
     end

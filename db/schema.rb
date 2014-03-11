@@ -11,20 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140311000232) do
+ActiveRecord::Schema.define(version: 20140311000658) do
 
   create_table "beacons", force: true do |t|
     t.string   "uuid"
     t.integer  "major"
     t.integer  "minor"
+    t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "beacons", ["major"], name: "index_beacons_on_major", using: :btree
-  add_index "beacons", ["minor"], name: "index_beacons_on_minor", using: :btree
+  add_index "beacons", ["item_id"], name: "index_beacons_on_item_id", using: :btree
   add_index "beacons", ["uuid", "major", "minor"], name: "index_beacons_on_uuid_and_major_and_minor", unique: true, using: :btree
-  add_index "beacons", ["uuid"], name: "index_beacons_on_uuid", using: :btree
 
   create_table "delayed_jobs", force: true do |t|
     t.integer  "priority",   default: 0, null: false
@@ -46,8 +45,11 @@ ActiveRecord::Schema.define(version: 20140311000232) do
     t.string   "spec"
     t.string   "name"
     t.string   "description"
+    t.integer  "beacon_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "items", ["beacon_id"], name: "index_items_on_beacon_id", using: :btree
 
 end
