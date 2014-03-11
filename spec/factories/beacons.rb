@@ -10,7 +10,5 @@ FactoryGirl.define do
       beacon.item = FactoryGirl.build(:item, beacon: beacon)
     end
 
-
-
   end
 end

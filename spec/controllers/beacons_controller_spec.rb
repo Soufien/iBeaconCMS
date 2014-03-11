@@ -23,7 +23,7 @@ describe BeaconsController do
   # This should return the minimal set of attributes required to create a valid
   # Beacon. As you add validations to Beacon, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "uuid" => "MyString" } }
+  let(:valid_attributes) { FactoryGirl.attributes_for(:beacon) }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -34,7 +34,7 @@ describe BeaconsController do
     it "assigns all beacons as @beacons" do
       beacon = Beacon.create! valid_attributes
       get :index, {}, valid_session
-      expect(:beacons).to eq([beacon])
+      expect(assigns(:beacons)).to eq([beacon])
     end
   end
 
@@ -42,14 +42,14 @@ describe BeaconsController do
     it "assigns the requested beacon as @beacon" do
       beacon = Beacon.create! valid_attributes
       get :show, {:id => beacon.to_param}, valid_session
-      expect(:beacon).to eq(beacon)
+      expect(assigns(:beacon)).to eq(beacon)
     end
   end
 
   describe "GET new" do
     it "assigns a new beacon as @beacon" do
       get :new, {}, valid_session
-      expect(:beacon).to be_a_new(Beacon)
+      expect(assigns(:beacon)).to be_a_new(Beacon)
     end
   end
 
@@ -57,7 +57,7 @@ describe BeaconsController do
     it "assigns the requested beacon as @beacon" do
       beacon = Beacon.create! valid_attributes
       get :edit, {:id => beacon.to_param}, valid_session
-      expect(:beacon).to eq(beacon)
+      expect(assigns(:beacon)).to eq(beacon)
     end
   end
 
@@ -71,13 +71,13 @@ describe BeaconsController do
 
       it "assigns a newly created beacon as @beacon" do
         post :create, {:beacon => valid_attributes}, valid_session
-        expect(:beacon).to be_a(Beacon)
-        expect(:beacon).to be_persisted
+        expect(assigns(:beacon)).to be_a(Beacon)
+        expect(assigns(:beacon)).to be_persisted
       end
 
       it "redirects to the created beacon" do
         post :create, {:beacon => valid_attributes}, valid_session
-        response.should redirect_to(Beacon.last)
+        expect(response).to redirect_to(Beacon.last)
       end
     end
 
@@ -86,14 +86,14 @@ describe BeaconsController do
         # Trigger the behavior that occurs when invalid params are submitted
         Beacon.any_instance.stub(:save).and_return(false)
         post :create, {:beacon => { "uuid" => "invalid value" }}, valid_session
-        expect(:beacon).to be_a_new(Beacon)
+        expect(assigns(:beacon)).to be_a_new(Beacon)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Beacon.any_instance.stub(:save).and_return(false)
         post :create, {:beacon => { "uuid" => "invalid value" }}, valid_session
-        response.should render_template("new")
+        expect(response).to render_template("new")
       end
     end
   end
@@ -113,13 +113,13 @@ describe BeaconsController do
       it "assigns the requested beacon as @beacon" do
         beacon = Beacon.create! valid_attributes
         put :update, {:id => beacon.to_param, :beacon => valid_attributes}, valid_session
-        expect(:beacon).to eq(beacon)
+        expect(assigns(:beacon)).to eq(beacon)
       end
 
       it "redirects to the beacon" do
         beacon = Beacon.create! valid_attributes
         put :update, {:id => beacon.to_param, :beacon => valid_attributes}, valid_session
-        response.should redirect_to(beacon)
+        expect(response).to redirect_to(beacon)
       end
     end
 
@@ -129,7 +129,7 @@ describe BeaconsController do
         # Trigger the behavior that occurs when invalid params are submitted
         Beacon.any_instance.stub(:save).and_return(false)
         put :update, {:id => beacon.to_param, :beacon => { "uuid" => "invalid value" }}, valid_session
-        expect(:beacon).to eq(beacon)
+        expect(assigns(:beacon)).to eq(beacon)
       end
 
       it "re-renders the 'edit' template" do
@@ -137,7 +137,7 @@ describe BeaconsController do
         # Trigger the behavior that occurs when invalid params are submitted
         Beacon.any_instance.stub(:save).and_return(false)
         put :update, {:id => beacon.to_param, :beacon => { "uuid" => "invalid value" }}, valid_session
-        response.should render_template("edit")
+        expect(response).to render_template("edit")
       end
     end
   end
@@ -153,7 +153,7 @@ describe BeaconsController do
     it "redirects to the beacons list" do
       beacon = Beacon.create! valid_attributes
       delete :destroy, {:id => beacon.to_param}, valid_session
-      response.should redirect_to(beacons_url)
+      expect(response).to redirect_to(beacons_url)
     end
   end
 

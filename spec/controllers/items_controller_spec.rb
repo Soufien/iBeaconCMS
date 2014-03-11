@@ -23,7 +23,9 @@ describe ItemsController do
   # This should return the minimal set of attributes required to create a valid
   # Item. As you add validations to Item, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "spec" => "MyString" } }
+  let(:valid_attributes) { FactoryGirl.attributes_for(:item) }
+  let(:not_valid_attributes) { FactoryGirl.attributes_for(:item_not_valid) }
+
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -34,7 +36,7 @@ describe ItemsController do
     it "assigns all items as @items" do
       item = Item.create! valid_attributes
       get :index, {}, valid_session
-      assigns(:items).should eq([item])
+      expect(assigns[:items]).to eq([item])
     end
   end
 
@@ -42,14 +44,14 @@ describe ItemsController do
     it "assigns the requested item as @item" do
       item = Item.create! valid_attributes
       get :show, {:id => item.to_param}, valid_session
-      assigns(:item).should eq(item)
+      expect(assigns(:item)).to eq(item)
     end
   end
 
   describe "GET new" do
     it "assigns a new item as @item" do
       get :new, {}, valid_session
-      assigns(:item).should be_a_new(Item)
+      expect(assigns(:item)).to be_a_new(Item)
     end
   end
 
@@ -57,7 +59,7 @@ describe ItemsController do
     it "assigns the requested item as @item" do
       item = Item.create! valid_attributes
       get :edit, {:id => item.to_param}, valid_session
-      assigns(:item).should eq(item)
+      expect(assigns(:item)).to eq(item)
     end
   end
 
@@ -71,13 +73,13 @@ describe ItemsController do
 
       it "assigns a newly created item as @item" do
         post :create, {:item => valid_attributes}, valid_session
-        assigns(:item).should be_a(Item)
-        assigns(:item).should be_persisted
+        expect(assigns(:item)).to be_a(Item)
+        expect(assigns(:item)).to be_persisted
       end
 
       it "redirects to the created item" do
         post :create, {:item => valid_attributes}, valid_session
-        response.should redirect_to(Item.last)
+        expect(response).to redirect_to(Item.last)
       end
     end
 
@@ -85,15 +87,15 @@ describe ItemsController do
       it "assigns a newly created but unsaved item as @item" do
         # Trigger the behavior that occurs when invalid params are submitted
         Item.any_instance.stub(:save).and_return(false)
-        post :create, {:item => { "spec" => "invalid value" }}, valid_session
-        assigns(:item).should be_a_new(Item)
+        post :create, {:item => not_valid_attributes}, valid_session
+        expect(assigns(:item)).to be_a_new(Item)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Item.any_instance.stub(:save).and_return(false)
         post :create, {:item => { "spec" => "invalid value" }}, valid_session
-        response.should render_template("new")
+        expect(response).to render_template("new")
       end
     end
   end
@@ -113,13 +115,13 @@ describe ItemsController do
       it "assigns the requested item as @item" do
         item = Item.create! valid_attributes
         put :update, {:id => item.to_param, :item => valid_attributes}, valid_session
-        assigns(:item).should eq(item)
+        expect(assigns(:item)).to eq(item)
       end
 
       it "redirects to the item" do
         item = Item.create! valid_attributes
         put :update, {:id => item.to_param, :item => valid_attributes}, valid_session
-        response.should redirect_to(item)
+        expect(response).to redirect_to(item)
       end
     end
 
@@ -129,7 +131,7 @@ describe ItemsController do
         # Trigger the behavior that occurs when invalid params are submitted
         Item.any_instance.stub(:save).and_return(false)
         put :update, {:id => item.to_param, :item => { "spec" => "invalid value" }}, valid_session
-        assigns(:item).should eq(item)
+        expect(assigns(:item)).to eq(item)
       end
 
       it "re-renders the 'edit' template" do
@@ -137,7 +139,7 @@ describe ItemsController do
         # Trigger the behavior that occurs when invalid params are submitted
         Item.any_instance.stub(:save).and_return(false)
         put :update, {:id => item.to_param, :item => { "spec" => "invalid value" }}, valid_session
-        response.should render_template("edit")
+        expect(response).to render_template("edit")
       end
     end
   end
@@ -153,7 +155,7 @@ describe ItemsController do
     it "redirects to the items list" do
       item = Item.create! valid_attributes
       delete :destroy, {:id => item.to_param}, valid_session
-      response.should redirect_to(items_url)
+      expect(response).to redirect_to(items_url)
     end
   end
 
