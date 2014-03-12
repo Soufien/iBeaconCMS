@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.1.1'
+ruby '2.0.0'
 
 gem 'airbrake'
 gem 'bourbon'
@@ -10,7 +10,6 @@ gem 'email_validator'
 gem 'flutie'
 gem 'high_voltage'
 gem 'jquery-rails'
-
 
 gem 'rack-timeout'
 gem 'rails', '>= 4.0.0'

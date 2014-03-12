@@ -6,7 +6,7 @@ describe 'factories' do
       factory = build(factory_name)
 
       if factory.respond_to?(:valid?)
-        factory.should be_valid, factory.errors.full_messages.join(',')
+        factory.should be_valid, lambda { factory.errors.full_messages.join(',') }
       end
     end
   end

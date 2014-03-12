@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-counter = 10
+counter = 50
 
 FactoryGirl.create_list(:beacon_with_item, counter)
+FactoryGirl.create_list(:user, counter)

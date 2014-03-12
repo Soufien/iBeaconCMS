@@ -1,4 +1,6 @@
 IBeaconCMS::Application.routes.draw do
+  resources :users
+
   resources :items
 
   get "home/index"
