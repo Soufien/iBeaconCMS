@@ -6,11 +6,11 @@ FactoryGirl.define do
     sequence(:major) { |n| n }
     sequence(:minor) { |n| n }
 
-    after(:build) do |beacon|
-      beacon.item = FactoryGirl.build(:item, beacon: beacon)
+    factory :beacon_with_item do
+      after(:build) do |beacon|
+        beacon.item = FactoryGirl.build(:item, beacon: beacon)
+      end
     end
-
-
 
   end
 end

@@ -7,4 +7,4 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 counter = 10
 
-FactoryGirl.create_list(:beacon, counter)
+FactoryGirl.create_list(:beacon_with_item, counter)
