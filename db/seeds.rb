@@ -1,11 +1,10 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
 counter = 50
 
-FactoryGirl.create_list(:beacon_with_item, counter)
-FactoryGirl.create_list(:user, counter)
+beacons = FactoryGirl.create_list(:beacon_with_item, counter)
+users = FactoryGirl.create_list(:user, counter)
+
+beacons.each do |beacon|
+  users.each do |user|
+    FactoryGirl.create(:detection, beacon: beacon, user: user)
+  end
+end
