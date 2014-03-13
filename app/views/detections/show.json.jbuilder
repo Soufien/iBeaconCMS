@@ -1,0 +1,1 @@
+json.extract! @detection, :beacon_id, :user_id, :accuracy, :proximity

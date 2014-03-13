@@ -25,6 +25,10 @@ gem 'haml'
 
 gem 'mysql2'
 
+gem 'turbolinks'
+
+gem 'jbuilder'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
