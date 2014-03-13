@@ -29,7 +29,7 @@ gem 'turbolinks'
 
 gem 'jbuilder'
 
-group :development do
+group :development, :production do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'foreman'
@@ -37,7 +37,7 @@ group :development do
   gem 'spring-commands-rspec'
 end
 
-group :development, :test do
+group :development, :production, :test do
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'pry-rails'
