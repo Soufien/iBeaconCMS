@@ -23,7 +23,7 @@ gem 'unicorn'
 gem 'bootstrap-sass', '~> 3.1.0'
 gem 'haml'
 
-gem 'mysql2'
+
 
 group :development do
   gem 'better_errors'
@@ -38,6 +38,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry-rails'
   gem 'rspec-rails', '>= 2.14'
+  gem 'mysql2'
 end
 
 group :test do
@@ -53,4 +54,5 @@ end
 group :staging, :production do
   gem 'rails_12factor'
   gem 'newrelic_rpm', '>= 3.6.7'
+  gem 'pg'
 end

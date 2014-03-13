@@ -1,5 +1,9 @@
 class DetectionsController < ApplicationController
+  protect_from_forgery :except => :create
+
   before_action :set_detection, only: [:show, :edit, :update, :destroy]
+
+  before_action :detection_params, only: [:create]
 
   # GET /detections
   def index
@@ -23,10 +27,14 @@ class DetectionsController < ApplicationController
   def create
     @detection = Detection.new(detection_params)
 
+    beacon = Beacon.where(params[:beacon])
+
+    @detection.beacon = beacon
+
     if @detection.save
-      redirect_to @detection, notice: 'Detection was successfully created.'
+      render json: @detection
     else
-      render action: 'new'
+      render json: { :errors => @detection.errors}
     end
   end
 
@@ -54,5 +62,9 @@ class DetectionsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def detection_params
       params.require(:detection).permit(:beacon_id, :user_id, :accuracy, :proximity, :rssi)
+    end
+
+    def detection_beacon
+      params.require(:beacon).permit(:uuid, :major, :minor)
     end
 end
