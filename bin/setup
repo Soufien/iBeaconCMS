@@ -13,6 +13,7 @@ bundle install
 bundle exec rake db:setup
 bundle exec rake db:migrate
 
+
 # Add binstubs to PATH via export PATH=".git/safe/../../bin:$PATH" in ~/.zshenv
 mkdir -p .git/safe
 
