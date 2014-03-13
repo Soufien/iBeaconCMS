@@ -1,5 +1,9 @@
 class DetectionsController < ApplicationController
+
+  protect_from_forgery :except => :create
+
   before_action :set_detection, only: [:show, :edit, :update, :destroy]
+
 
   # GET /detections
   def index
@@ -24,9 +28,9 @@ class DetectionsController < ApplicationController
     @detection = Detection.new(detection_params)
 
     if @detection.save
-      redirect_to @detection, notice: 'Detection was successfully created.'
+      render json: @detection
     else
-      render action: 'new'
+      render json: { :errors => @detection.errors}
     end
   end
 
@@ -55,4 +59,6 @@ class DetectionsController < ApplicationController
     def detection_params
       params.require(:detection).permit(:beacon_id, :user_id, :accuracy, :proximity, :rssi)
     end
+
+
 end

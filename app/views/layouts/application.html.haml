@@ -7,9 +7,27 @@
     = stylesheet_link_tag :application, :media => 'all'
     = csrf_meta_tags
   %body{class: body_class}
-
-    %section.container
-
+    .navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
+      .container
+        .navbar-header
+          %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", type: "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          %a.navbar-brand{href: "/"} iBeaconCMS
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li{class: active_class('beacons')}
+              = link_to 'Beacons', beacons_path
+            %li{class: active_class('items')}
+              = link_to 'Items', items_path
+            %li{class: active_class('users')}
+              = link_to 'Users', users_path
+    .container
       = render 'flashes'
       = yield
+      %footer
+        %h4 Powered By Slalom 2014
+
     = render 'javascript'

@@ -1,5 +1,5 @@
 %h1 Listing items
-%table
+%table.table.table-striped
   %thead
     %tr
       %th Spec
@@ -15,7 +15,7 @@
         %td= item.spec
         %td= item.name
         %td= item.description
-        %td= item.beacon.major.to_s + ' ' + item.beacon.minor.to_s
+        %td= item.beacon.major.to_s + ' - ' + item.beacon.minor.to_s
         %td= link_to 'Show', item
         %td= link_to 'Edit', edit_item_path(item)
         %td= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }
