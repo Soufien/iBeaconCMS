@@ -30,7 +30,3 @@ then
 else
   echo "Pow not set up but the team uses it for this project. Setup: http://goo.gl/RaDPO"
 fi
-
-# Set up staging and production git remotes
-git remote add staging git@heroku.com:iBeaconCMS-staging.git
-git remote add production git@heroku.com:iBeaconCMS-production.git
