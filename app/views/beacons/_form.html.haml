@@ -1,17 +1,10 @@
-= simple_form(@beacon) do |f|
-  - if @beacon.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@beacon.errors.count, "error")
-        prohibited this beacon from being saved:
-      %ul
-        - @beacon.errors.full_messages.each do |msg|
-          %li= msg
-  .field
-    = f.input :uuid
-  .field
-    = f.input :major
-  .field
-    = f.input :minor
-  .actions
-    = f.button :submit
+= simple_form_for(@beacon, :wrapper => :bootstrap_horizontal, html: {class: 'form-horizontal' }) do |f|
+  %section.row
+    %section.col-lg-12
+      = f.input :uuid
+      = f.input :major
+      = f.input :minor
+
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.button :submit
