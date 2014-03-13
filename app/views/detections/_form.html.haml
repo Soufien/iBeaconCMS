@@ -1,0 +1,31 @@
+= form_for(@detection) do |f|
+  - if @detection.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@detection.errors.count, "error")
+        prohibited this detection from being saved:
+      %ul
+        - @detection.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :beacon_id
+    %br/
+    = f.text_field :beacon_id
+  .field
+    = f.label :user_id
+    %br/
+    = f.text_field :user_id
+  .field
+    = f.label :accuracy
+    %br/
+    = f.text_field :accuracy
+  .field
+    = f.label :proximity
+    %br/
+    = f.number_field :proximity
+  .field
+    = f.label :rssi
+    %br/
+    = f.number_field :rssi
+  .actions
+    = f.submit

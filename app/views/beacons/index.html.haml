@@ -1,0 +1,21 @@
+%h1 Listing beacons
+%table
+  %thead
+    %tr
+      %th Uuid
+      %th Major
+      %th Minor
+      %th
+      %th
+      %th
+  %tbody
+    - @beacons.each do |beacon|
+      %tr
+        %td= beacon.uuid
+        %td= beacon.major
+        %td= beacon.minor
+        %td= link_to 'Show', beacon
+        %td= link_to 'Edit', edit_beacon_path(beacon)
+        %td= link_to 'Destroy', beacon, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Beacon', new_beacon_path
