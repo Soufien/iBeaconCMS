@@ -1,4 +1,4 @@
-=begin  For now we aren't going to use e-mail password recovery
+=begin  For now we aren't going to use e-mail password recove
 if Rails.env.staging? || Rails.env.production?
   SMTP_SETTINGS = {
     address: ENV.fetch('SMTP_ADDRESS'), # example: 'smtp.sendgrid.net'
