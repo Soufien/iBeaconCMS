@@ -1,4 +1,6 @@
 IBeaconCMS::Application.routes.draw do
+  resources :detections
+
   resources :users
 
   resources :items

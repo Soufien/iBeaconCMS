@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140312211728) do
+ActiveRecord::Schema.define(version: 20140312232748) do
 
   create_table "beacons", force: true do |t|
     t.string   "uuid"
@@ -40,6 +40,19 @@ ActiveRecord::Schema.define(version: 20140312211728) do
   end
 
   add_index "delayed_jobs", ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
+
+  create_table "detections", force: true do |t|
+    t.integer  "beacon_id"
+    t.integer  "user_id"
+    t.decimal  "accuracy",   precision: 10, scale: 0
+    t.integer  "proximity"
+    t.integer  "rssi"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "detections", ["beacon_id"], name: "index_detections_on_beacon_id", using: :btree
+  add_index "detections", ["user_id"], name: "index_detections_on_user_id", using: :btree
 
   create_table "items", force: true do |t|
     t.string   "spec"
