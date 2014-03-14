@@ -3,7 +3,7 @@ class CreateDetections < ActiveRecord::Migration
     create_table :detections do |t|
       t.references :beacon, index: true
       t.references :user, index: true
-      t.decimal :accuracy
+      t.decimal :accuracy, :precision => 10, :scale => 5
       t.integer :proximity
       t.integer :rssi
 

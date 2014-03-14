@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20140312232748) do
   create_table "detections", force: true do |t|
     t.integer  "beacon_id"
     t.integer  "user_id"
-    t.decimal  "accuracy",   precision: 10, scale: 0
+    t.decimal  "accuracy",   precision: 10, scale: 5
     t.integer  "proximity"
     t.integer  "rssi"
     t.datetime "created_at"

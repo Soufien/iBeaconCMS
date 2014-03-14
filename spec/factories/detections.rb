@@ -5,7 +5,7 @@ FactoryGirl.define do
     association :beacon, factory: :beacon_with_item
     association :user, factory: :user
     proximity { Random.new.rand(0..3) }
-    accuracy { proximity * 0.99 }
+    accuracy { proximity * 0.1111 }
     rssi { proximity * 25}
   end
 end
