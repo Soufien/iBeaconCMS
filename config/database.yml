@@ -9,3 +9,15 @@ development: &default
 test:
   <<: *default
   database: iBeaconCMS_test
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  min_messages: warning
+  pool: 2
+  timeout: 5000
+  database: <%= ENV['RDS_DB_NAME'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <%= ENV['RDS_PORT'] %>

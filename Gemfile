@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '1.9.3'
 
 gem 'airbrake'
 gem 'bourbon'
@@ -14,7 +14,7 @@ gem 'jquery-rails'
 gem 'rack-timeout'
 gem 'rails', '>= 4.0.0'
 gem 'recipient_interceptor'
-gem 'sass-rails'
+gem 'sass-rails', '~> 4.0.0'
 gem 'simple_form'
 gem 'title'
 gem 'uglifier'
@@ -25,7 +25,11 @@ gem 'haml'
 
 
 
-group :development do
+gem 'turbolinks'
+
+gem 'jbuilder'
+
+group :development, :production do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'foreman'
@@ -33,7 +37,7 @@ group :development do
   gem 'spring-commands-rspec'
 end
 
-group :development, :test do
+group :development, :production, :test do
   gem 'dotenv-rails'
   gem 'factory_girl_rails'
   gem 'pry-rails'

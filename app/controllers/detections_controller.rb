@@ -1,9 +1,12 @@
 class DetectionsController < ApplicationController
+
   protect_from_forgery :except => :create
 
   before_action :set_detection, only: [:show, :edit, :update, :destroy]
 
+
   before_action :detection_params, only: [:create]
+
 
   # GET /detections
   def index
@@ -64,7 +67,5 @@ class DetectionsController < ApplicationController
       params.require(:detection).permit(:beacon_id, :user_id, :accuracy, :proximity, :rssi)
     end
 
-    def detection_beacon
-      params.require(:beacon).permit(:uuid, :major, :minor)
-    end
+
 end
