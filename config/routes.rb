@@ -1,5 +1,7 @@
 IBeaconCMS::Application.routes.draw do
-  resources :detections
+  resources :detections do
+    post 'track'
+  end
 
   resources :users
 

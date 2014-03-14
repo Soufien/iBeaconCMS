@@ -9,4 +9,9 @@ class Beacon < ActiveRecord::Base
   validates :minor, uniqueness: { scope: [:uuid, :major],
                                  message: "should have different combination values [uuid, minor, major]"
   }
+
+  def description
+    self.uuid + ' - ' + self.major.to_s + ' - ' + self.minor.to_s
+  end
+
 end

@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :beacon do |beacon|
     uuid "B9407F30-F5F8-466E-AFF9-25556B57FE6D"
-    sequence(:major) { |n| n }
+    major 1
     sequence(:minor) { |n| n }
 
     factory :beacon_with_item do

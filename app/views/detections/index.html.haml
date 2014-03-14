@@ -13,8 +13,8 @@
   %tbody
     - @detections.each do |detection|
       %tr
-        %td= detection.beacon
-        %td= detection.user
+        %td= detection.beacon.description
+        %td= detection.user.email
         %td= detection.accuracy
         %td= detection.proximity
         %td= detection.rssi

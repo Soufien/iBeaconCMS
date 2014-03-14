@@ -3,7 +3,7 @@ class DetectionsController < ApplicationController
 
   before_action :set_detection, only: [:show, :edit, :update, :destroy]
 
-  before_action :detection_params, only: [:create]
+  before_action :detection_beacon, only: [:create]
 
   # GET /detections
   def index
@@ -27,7 +27,8 @@ class DetectionsController < ApplicationController
   def create
     @detection = Detection.new(detection_params)
 
-    @beacon = Beacon.where(params[:beacon])
+    beacon = Beacon.where(params[:beacon]).first
+    @detection.beacon = beacon
 
     if @detection.save
       render json: @detection
@@ -50,6 +51,9 @@ class DetectionsController < ApplicationController
     @detection.destroy
     redirect_to detections_url, notice: 'Detection was successfully destroyed.'
   end
+
+
+  # Added to handle multiple detection creations
 
   private
   # Use callbacks to share common setup or constraints between actions.
