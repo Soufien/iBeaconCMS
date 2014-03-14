@@ -1,10 +1,11 @@
 [global]
 ApplicationName=ibeaconcms
-AwsCredentialFile=/Users/aaronc/.elasticbeanstalk/aws_credential_file
+AwsCredentialFile=/Users/giuseppem/.elasticbeanstalk/aws_credential_file
 DevToolsEndpoint=git.elasticbeanstalk.us-west-1.amazonaws.com
 EnvironmentName=ibeaconcms-env
+EnvironmentTier=WebServer::Standard::1.0
 EnvironmentType=SingleInstance
-InstanceProfileName=aws-elasticbeanstalk-ec2-role
+InstanceProfileName=
 OptionSettingFile=/Users/aaronc/workspace/ibeaconcms/.elasticbeanstalk/optionsettings.ibeaconcms-env
 RdsDeletionPolicy=Delete
 RdsEnabled=Yes
