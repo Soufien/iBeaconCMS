@@ -1,12 +1,9 @@
 class DetectionsController < ApplicationController
-
   protect_from_forgery :except => :create
 
   before_action :set_detection, only: [:show, :edit, :update, :destroy]
 
-
   before_action :detection_params, only: [:create]
-
 
   # GET /detections
   def index
@@ -30,9 +27,7 @@ class DetectionsController < ApplicationController
   def create
     @detection = Detection.new(detection_params)
 
-    beacon = Beacon.where(params[:beacon])
-
-    @detection.beacon = beacon
+    @beacon = Beacon.where(params[:beacon])
 
     if @detection.save
       render json: @detection
@@ -57,15 +52,17 @@ class DetectionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_detection
-      @detection = Detection.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_detection
+    @detection = Detection.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def detection_params
-      params.require(:detection).permit(:beacon_id, :user_id, :accuracy, :proximity, :rssi)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def detection_params
+    params.require(:detection).permit(:beacon_id, :user_id, :accuracy, :proximity, :rssi)
+  end
 
-
+  def detection_beacon
+    params.require(:beacon).permit(:uuid, :major, :minor)
+  end
 end
