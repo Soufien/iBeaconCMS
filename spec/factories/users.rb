@@ -5,7 +5,6 @@ FactoryGirl.define do
     sequence(:first_name) { |n| "First#{n}" }
     sequence(:last_name) { |n| "Last#{n}" }
     email { "#{first_name}.#{last_name}@example.com".downcase }
-
-    uid "MyString"
+    uid { "#{first_name}.#{last_name}" }
   end
 end

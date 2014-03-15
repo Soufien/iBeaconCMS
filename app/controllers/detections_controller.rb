@@ -25,6 +25,7 @@ class DetectionsController < ApplicationController
 
   # POST /detections
   def create
+    
     @detection = Detection.new(detection_params)
 
     beacon = Beacon.where(params[:beacon]).first
