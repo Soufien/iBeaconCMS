@@ -6,9 +6,13 @@ FactoryGirl.define do
     major 1
     sequence(:minor) { |n| n }
 
-    factory :beacon_with_item do
-      after(:build) do |beacon|
-        beacon.item = FactoryGirl.build(:item, beacon: beacon)
+    factory :beacon_with_items do
+
+
+      after(:create) do |beacon|
+        create(:item, beacon: beacon, show_after_seconds: 15)
+        create(:item, beacon: beacon, show_after_seconds: 30)
+        create(:item, beacon: beacon, show_after_seconds: 60)
       end
     end
 

@@ -17,12 +17,10 @@ ActiveRecord::Schema.define(version: 20140312232748) do
     t.string   "uuid"
     t.integer  "major"
     t.integer  "minor"
-    t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "beacons", ["item_id"], name: "index_beacons_on_item_id", using: :btree
   add_index "beacons", ["uuid", "major", "minor"], name: "index_beacons_on_uuid_and_major_and_minor", unique: true, using: :btree
 
   create_table "delayed_jobs", force: true do |t|
