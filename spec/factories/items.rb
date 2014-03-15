@@ -2,9 +2,10 @@
 
 FactoryGirl.define do
   factory :item do
-    spec { [ 'TYPE1', 'TYPE2' ].sample }
+    spec { [ 'COPUON', 'PRODUCT', 'HELP' ].sample }
     sequence(:name) { |n| "Item #{n}" }
     sequence(:description) { |n| "Description #{n}" }
+    show_after_seconds { [15, 30, 60].sample }
 
     factory :item_with_beacon do
       association :beacon, factory: :beacon
