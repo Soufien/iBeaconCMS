@@ -51,7 +51,7 @@ class UsersController < ApplicationController
 
     @user = User.find_or_create_by(user_params)
 
-    if @user.errors.count > 0
+    if @user.errors.count == 0
       render json: @user
     else
       render json: { :errors => @user.errors}
