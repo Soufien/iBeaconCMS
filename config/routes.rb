@@ -4,10 +4,11 @@ IBeaconCMS::Application.routes.draw do
   end
 
   resources :users
+  match 'users/mobile_user', to: 'users#mobile_user', via: :post
 
   resources :items
 
-  get "home/index"
+  get 'home/index'
   resources :beacons
 
   root :to => 'home#index'

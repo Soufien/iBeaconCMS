@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
             :last_name,
             presence: true
 
-  validates :email, uniqueness: true, email: true
+  validates :email,
+            uniqueness: true,
+            email: true
 
 end

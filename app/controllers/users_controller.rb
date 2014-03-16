@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  protect_from_forgery :except => :mobile_user
+
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -43,6 +45,17 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     redirect_to users_url, notice: 'User was successfully destroyed.'
+  end
+
+  def mobile_user
+
+    @user = User.find_or_create_by(user_params)
+
+    if @user.errors.count > 0
+      render json: @user
+    else
+      render json: { :errors => @user.errors}
+    end
   end
 
   private
