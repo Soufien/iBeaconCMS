@@ -1,5 +1,5 @@
 class Beacon < ActiveRecord::Base
-  has_many :item
+  has_many :items
 
   validates :uuid,
             :major,

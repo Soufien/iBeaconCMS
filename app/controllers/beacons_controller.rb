@@ -1,4 +1,6 @@
 class BeaconsController < ApplicationController
+  protect_from_forgery :except => :content
+
   before_action :set_beacon, only: [:show, :edit, :update, :destroy]
 
   # GET /beacons
@@ -43,6 +45,18 @@ class BeaconsController < ApplicationController
   def destroy
     @beacon.destroy
     redirect_to beacons_url, notice: 'Beacon was successfully destroyed.'
+  end
+
+
+  def content
+    @beacon = Beacon.includes(:items).where(beacon_params).first
+
+    if @beacon.blank?
+      render json: {:errors => { :code => 101, :message => 'No beacons'}}
+    else
+      render json: @beacon.items
+    end
+
   end
 
   private

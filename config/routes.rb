@@ -8,9 +8,11 @@ IBeaconCMS::Application.routes.draw do
 
   resources :items
 
-  get 'home/index'
   resources :beacons
+  match 'beacons/content', to: 'beacons#content', via: :post
 
+
+  get 'home/index'
   root :to => 'home#index'
 
 end
