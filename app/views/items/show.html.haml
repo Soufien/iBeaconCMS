@@ -11,6 +11,9 @@
 %p
   %strong Beacon:
   = @item.beacon
+
+%p
+  = image_tag(@item.content_url) if @item.content?
 = link_to 'Edit', edit_item_path(@item)
 |
 \#{link_to 'Back', items_path}

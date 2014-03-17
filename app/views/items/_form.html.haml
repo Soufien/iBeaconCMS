@@ -1,10 +1,13 @@
-= simple_form_for(@item,:wrapper => :bootstrap_horizontal,  html: {class: 'form-horizontal' }) do |f|
+= simple_form_for(@item,:wrapper => :bootstrap_horizontal,  html: {class: 'form-horizontal', :multipart => true }) do |f|
   %section.row
     %section.col-lg-12
       = f.input :spec
       = f.input :name
       = f.input :description
       = f.association :beacon
+      = f.file_field :content
+      = f.hidden_field :content_cache
+      = image_tag(@item.content_url) if @item.content?
 
   .form-group
     .col-sm-offset-2.col-sm-10

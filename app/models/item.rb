@@ -1,6 +1,8 @@
 class Item < ActiveRecord::Base
-  belongs_to :beacon
 
+  mount_uploader :content, ItemContentUploader
+
+  belongs_to :beacon
 
   validates :spec,
             :name,
