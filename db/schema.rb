@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20140312232748) do
     t.string   "spec"
     t.string   "name"
     t.string   "description"
+    t.string   "content"
     t.integer  "show_after_seconds"
     t.integer  "beacon_id"
     t.datetime "created_at"

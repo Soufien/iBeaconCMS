@@ -54,7 +54,7 @@ class BeaconsController < ApplicationController
     if @beacon.blank?
       render json: {:errors => { :code => 101, :message => 'No beacons'}}
     else
-      render json: @beacon.items
+      render json: {:items => @beacon.items }
     end
 
   end

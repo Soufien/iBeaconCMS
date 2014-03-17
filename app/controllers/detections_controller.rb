@@ -64,7 +64,7 @@ class DetectionsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def detection_params
-    params.require(:detection).permit(:beacon_id, :user_id, :accuracy, :proximity, :rssi)
+    params.require(:detection).permit(:beacon_id, :user_id, :user_uid, :accuracy, :proximity, :rssi)
   end
 
   def detection_beacon
