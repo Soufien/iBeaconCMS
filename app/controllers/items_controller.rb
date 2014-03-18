@@ -1,5 +1,9 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  layout :resolve_layout
+
+  before_action :set_item, only: [:show, :edit, :update, :destroy, :embedded]
+
+
 
   # GET /items
   def index
@@ -45,6 +49,12 @@ class ItemsController < ApplicationController
     redirect_to items_url, notice: 'Item was successfully destroyed.'
   end
 
+
+  # Get /items/1/embedded
+  # Used by mobile app to display item content
+  def embedded
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
@@ -54,5 +64,15 @@ class ItemsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def item_params
       params.require(:item).permit(:spec, :name, :description, :beacon_id, :content, :content_cache)
+    end
+
+
+    def resolve_layout
+      case action_name
+        when 'embedded'
+          'compact'
+        else
+          'application'
+      end
     end
 end

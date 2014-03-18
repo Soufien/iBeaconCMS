@@ -6,7 +6,11 @@ IBeaconCMS::Application.routes.draw do
   resources :users
   match 'users/mobile_user', to: 'users#mobile_user', via: :post
 
-  resources :items
+  resources :items do
+    member do
+      get 'embedded'
+    end
+  end
 
   resources :beacons
   match 'beacons/content', to: 'beacons#content', via: :post
