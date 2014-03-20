@@ -1,4 +1,4 @@
-counter = 3
+counter = 5
 
-beacons = FactoryGirl.create_list(:beacon_with_items, counter)
+FactoryGirl.create(:beacon_with_item, counter)
 #users = FactoryGirl.create_list(:user, counter)

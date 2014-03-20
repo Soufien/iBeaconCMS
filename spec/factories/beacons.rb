@@ -6,9 +6,7 @@ FactoryGirl.define do
     major 1
     sequence(:minor) { |n| n }
 
-    factory :beacon_with_items do
-
-
+    factory :beacon_with_item do
       after(:create) do |beacon|
         create(:item, beacon: beacon, show_after_seconds: 15)
       end

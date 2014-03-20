@@ -49,12 +49,12 @@ class BeaconsController < ApplicationController
 
 
   def content
-    @beacon = Beacon.includes(:items).where(beacon_params).first
+    @beacon = Beacon.includes(:item).where(beacon_params).first
 
     if @beacon.blank?
       render json: {:errors => { :code => 101, :message => 'No beacons'}}
     else
-      render json: {:items => @beacon.items }
+      render json: @beacon.item
     end
 
   end
