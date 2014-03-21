@@ -35,8 +35,8 @@ group :development, :production do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'foreman'
-  gem 'spring'
-  gem 'spring-commands-rspec'
+  #gem 'spring'
+  #gem 'spring-commands-rspec'
 end
 
 group :development, :production, :test do
