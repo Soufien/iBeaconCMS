@@ -5,6 +5,7 @@
       %th Spec
       %th Name
       %th Description
+      %th Timeframe
       %th Beacon
       %th
       %th
@@ -15,6 +16,7 @@
         %td= item.spec
         %td= item.name
         %td= item.description
+        %td= item.show_after_seconds
         %td= item.beacon.major.to_s + ' - ' + item.beacon.minor.to_s
         %td= link_to 'Show', item
         %td= link_to 'Edit', edit_item_path(item)
