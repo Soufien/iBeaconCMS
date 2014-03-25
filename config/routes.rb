@@ -1,4 +1,6 @@
 IBeaconCMS::Application.routes.draw do
+  resources :apps
+
   devise_for :users
   resources :detections do
     post 'track'

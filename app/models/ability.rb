@@ -30,7 +30,8 @@ class Ability
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
 
     if user
-      can :access, :all
+      can :manage, App, :user => { :id => user.id }
+      can :manage, Beacon, :app => { :user => { :id => user.id }}
     end
 
   end

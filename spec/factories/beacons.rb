@@ -1,10 +1,10 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :beacon do |beacon|
-    uuid "B9407F30-F5F8-466E-AFF9-25556B57FE6D"
+  factory :beacon do
+    uuid ""
     major 1
-    sequence(:minor) { |n| n }
+    sequence(:minor) { |n| n % 4 + 1}
 
     factory :beacon_with_item do
       after(:create) do |beacon|

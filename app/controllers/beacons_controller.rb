@@ -1,13 +1,14 @@
 class BeaconsController < ApplicationController
   before_filter :authenticate_user!
 
+  load_and_authorize_resource # ACL
+
   protect_from_forgery :except => :content
 
   before_action :set_beacon, only: [:show, :edit, :update, :destroy]
 
   # GET /beacons
   def index
-    @beacons = Beacon.all
   end
 
   # GET /beacons/1
