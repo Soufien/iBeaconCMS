@@ -19,7 +19,12 @@ gem 'simple_form'
 gem 'title'
 gem 'uglifier'
 gem 'unicorn'
+
+#authentication
 gem 'devise'
+
+#authorization
+gem "cancan"
 
 gem 'bootstrap-sass', '~> 3.1.0'
 gem 'haml'
