@@ -1,4 +1,6 @@
 class DetectionsController < ApplicationController
+  before_filter :authenticate_user!
+
   protect_from_forgery :except => :create
 
   before_action :set_detection, only: [:show, :edit, :update, :destroy]

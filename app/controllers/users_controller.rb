@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_user!
+
   protect_from_forgery :except => :mobile_user
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]

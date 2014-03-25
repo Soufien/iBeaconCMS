@@ -1,4 +1,6 @@
 class BeaconsController < ApplicationController
+  before_filter :authenticate_user!
+
   protect_from_forgery :except => :content
 
   before_action :set_beacon, only: [:show, :edit, :update, :destroy]
