@@ -7,5 +7,6 @@ FactoryGirl.define do
     proximity { Random.new.rand(0..3) }
     accuracy { proximity * 0.1111 }
     rssi { proximity * 25}
+    content 'test'
   end
 end

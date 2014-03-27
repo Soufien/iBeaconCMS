@@ -9,6 +9,7 @@ class BeaconsController < ApplicationController
 
   # GET /beacons
   def index
+    @beacons = Beacon.all
   end
 
   # GET /beacons/1
