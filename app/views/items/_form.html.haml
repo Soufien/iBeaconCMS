@@ -6,8 +6,6 @@
       = f.input :description
       = f.input :show_after_seconds
       = f.association :beacon
-      = f.file_field :content
-      = f.hidden_field :content_cache
       = image_tag(@item.content_url) if @item.content?
 
   .form-group
