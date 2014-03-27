@@ -1,10 +1,7 @@
 class ItemsController < ApplicationController
-  before_filter :authenticate_user!
-
-  layout :resolve_layout
+  #before_filter :authenticate_user!
 
   before_action :set_item, only: [:show, :edit, :update, :destroy, :embedded]
-
 
 
   # GET /items

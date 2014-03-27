@@ -1,7 +1,7 @@
 class BeaconsController < ApplicationController
-  before_filter :authenticate_user!
-
-  load_and_authorize_resource # ACL
+  #before_filter :authenticate_user!
+  #
+  #load_and_authorize_resource # ACL
 
   protect_from_forgery :except => :content
 
