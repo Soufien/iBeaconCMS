@@ -4,7 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :spec
       t.string :name
       t.string :description
-      t.string :content
+      t.text :content
       t.integer :show_after_seconds
       t.references :beacon, index: true
 

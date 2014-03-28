@@ -13,7 +13,9 @@
   = @item.beacon
 
 %p
-  = image_tag(@item.content_url) if @item.content?
+  %strong Preview:
+  %br
+  = @item.content.html_safe
 = link_to 'Edit', edit_item_path(@item)
 
 |

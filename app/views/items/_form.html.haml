@@ -6,7 +6,7 @@
       = f.input :description
       = f.input :show_after_seconds
       = f.association :beacon
-      = image_tag(@item.content_url) if @item.content?
+      = f.input :content, :as => :text
 
   .form-group
     .col-sm-offset-2.col-sm-10

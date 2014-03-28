@@ -52,6 +52,7 @@ class ItemsController < ApplicationController
   # Get /items/1/embedded
   # Used by mobile app to display item content
   def embedded
+    render layout: 'compact'
   end
 
   private
