@@ -12,6 +12,7 @@ IBeaconCMS::Application.routes.draw do
   resources :items do
     member do
       get 'embedded'
+      get 'kiosk'
     end
   end
 

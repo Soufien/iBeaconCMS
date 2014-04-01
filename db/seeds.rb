@@ -16,7 +16,7 @@ a1 = FactoryGirl.create(:app,
 #                        user: users[1])
 
 #Beacons
-counter = 4
+counter = 5
 FactoryGirl.create_list(:beacon_with_item, counter, uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D", app: a1)
 #FactoryGirl.create_list(:beacon_with_item, counter, uuid: "B9407F30-F5F8-466E-AFF9-ABCDEFGHILMN", app: a2)
 

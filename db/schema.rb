@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140325203155) do
+ActiveRecord::Schema.define(version: 20140401200909) do
 
   create_table "apps", force: true do |t|
     t.integer  "user_id"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20140325203155) do
     t.integer  "beacon_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "video"
   end
 
   add_index "items", ["beacon_id"], name: "index_items_on_beacon_id", using: :btree

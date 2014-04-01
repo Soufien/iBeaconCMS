@@ -11,6 +11,9 @@
 %p
   %strong Beacon:
   = @item.beacon
+%p
+  %strong Video:
+  = @item.video
 
 %p
   %strong Preview:
@@ -22,3 +25,5 @@
 \#{link_to 'Back', items_path}
 |
 \#{link_to 'Mobile Version', embedded_item_path(@item)}
+|
+\#{link_to 'Kiosk', embedded_item_path(@item)}

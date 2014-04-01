@@ -55,6 +55,12 @@ class ItemsController < ApplicationController
     render layout: 'compact'
   end
 
+  # Get /items/1/kiosk
+  # Used by mobile app to display item video
+  def kiosk
+    render layout: 'compact'
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_item
@@ -63,7 +69,7 @@ class ItemsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def item_params
-      params.require(:item).permit(:spec, :name, :description, :beacon_id, :content, :content_cache, :show_after_seconds)
+      params.require(:item).permit(:spec, :name, :description, :beacon_id, :content, :video, :show_after_seconds)
     end
 
 
