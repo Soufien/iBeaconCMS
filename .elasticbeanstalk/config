@@ -1,16 +1,14 @@
 [global]
 ApplicationName=ibeaconcms
-AwsCredentialFile=/Users/giuseppem/.elasticbeanstalk/aws_credential_file
+AwsCredentialFile=/Users/aaronc/.elasticbeanstalk/aws_credential_file
 DevToolsEndpoint=git.elasticbeanstalk.us-west-1.amazonaws.com
-EnvironmentName=ibeaconcms-env
-EnvironmentTier=WebServer::Standard::1.0
+EnvironmentName=ibeaconcms-env2
 EnvironmentType=SingleInstance
-InstanceProfileName=
-OptionSettingFile=/Users/giuseppem/Sites/iBeaconCMS/.elasticbeanstalk/optionsettings.ibeaconcms-env
+InstanceProfileName=aws-elasticbeanstalk-ec2-role
+OptionSettingFile=/Users/aaronc/workspace/ibeaconcms/.elasticbeanstalk/optionsettings.ibeaconcms-env
 RdsDeletionPolicy=Delete
 RdsEnabled=Yes
 RdsSourceSnapshotName=
 Region=us-west-1
 ServiceEndpoint=https://elasticbeanstalk.us-west-1.amazonaws.com
 SolutionStack=64bit Amazon Linux running Ruby 1.9.3
-
