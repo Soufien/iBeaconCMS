@@ -26,6 +26,9 @@ gem 'devise'
 #authorization
 gem "cancan"
 
+#http request logger
+gem 'http_logger'
+
 gem 'bootstrap-sass', '~> 3.1.0'
 gem 'haml'
 
