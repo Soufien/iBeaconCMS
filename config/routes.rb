@@ -1,4 +1,6 @@
 IBeaconCMS::Application.routes.draw do
+  resources :notifications
+
   resources :apps
 
   devise_for :users
@@ -12,6 +14,7 @@ IBeaconCMS::Application.routes.draw do
   resources :items do
     member do
       get 'embedded'
+      get 'kiosk'
     end
   end
 

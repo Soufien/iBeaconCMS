@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :item do
-    spec { [ 'SAMPLE', 'PRODUCT', 'HELP', 'POINTS' ].sample }
+    sequence(:spec)  {|n| [ 'SAMPLE', 'PRODUCT', 'HELP', 'POINTS', 'KIOSK' ][n - 1] }
     sequence(:name) { |n| "Item #{n}" }
     sequence(:description) { |n| "Description #{n}" }
     content 'html'

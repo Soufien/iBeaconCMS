@@ -6,6 +6,7 @@ require "action_controller/railtie"
 require "action_mailer/railtie"
 require "sprockets/railtie"
 # require "rails/test_unit/railtie"
+require "http_logger"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -24,6 +25,11 @@ module IBeaconCMS
       generate.test_framework :rspec
       generate.view_specs false
     end
+
+    # Log http requests
+    HttpLogger.logger = Logger.new($stdout)
+    HttpLogger.colorize = true
+    HttpLogger.log_headers = true
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
