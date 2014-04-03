@@ -11,6 +11,7 @@ module Urbanairship
     Timer = Timeout
   end
 
+  #SMART Alert Keys
   APPLICATION_KEY = '7qbT_tnhR7m9pgaKNolPfg'
   APPLICATION_SECRET = 'K8LVrFnNRe2x_d1HdXn_LQ'
   MASTER_SECRET = 'ElUXZUI7RAq4_i498x0rjw'
@@ -53,6 +54,31 @@ module Urbanairship
       do_request(:post, "/api/push/", :body => body, :authenticate_with => MASTER_SECRET)
     end
 
+    def push_rich_notification(device_id, os, html_content)
+
+      #if it's android use as key apid, if its ios use device_token
+      audience_keys = {"android" => "apid",
+                       "ios" => "device_token"}
+
+      audience = {audience_keys[os] => device_id}
+
+      notification = {
+          "audience" => audience,
+          "notification" => {
+              "alert" => "Hello",
+          },
+          "message" => {
+              "title" => "Hello",
+              "body" => html_content,
+              "content_type" => "text/html"
+          },
+          "device_types" => [ "ios", "android"]
+      }
+
+      response = Urbanairship.push(notification)
+      puts response
+      return response
+    end
 
     def push_to_segment(options = {})
       body = parse_push_options(options).to_json
