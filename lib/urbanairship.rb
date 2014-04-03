@@ -11,10 +11,14 @@ module Urbanairship
     Timer = Timeout
   end
 
-  #TODO: configure these with the final app and secrets
-  APPLICATION_KEY = 'GrdmcPZoS9CzX8WSLcDBTg'
-  APPLICATION_SECRET = 'jIXZl0XRRlSe7-uF9wg0nA'
-  MASTER_SECRET = 'qHlx6NhSSeOhl_hoOfV4Gw'
+  APPLICATION_KEY = '7qbT_tnhR7m9pgaKNolPfg'
+  APPLICATION_SECRET = 'K8LVrFnNRe2x_d1HdXn_LQ'
+  MASTER_SECRET = 'ElUXZUI7RAq4_i498x0rjw'
+  ##TEST IPhone app
+  #APPLICATION_KEY = 'GrdmcPZoS9CzX8WSLcDBTg'
+  #APPLICATION_SECRET = 'jIXZl0XRRlSe7-uF9wg0nA'
+  #MASTER_SECRET = 'qHlx6NhSSeOhl_hoOfV4Gw'
+
   LOGGER = Rails.logger
   REQUEST_TIMEOUT = 5 # default
 

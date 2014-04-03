@@ -27,9 +27,9 @@ module IBeaconCMS
     end
 
     # Log http requests
-    Net::HTTP.logger = Logger.new($stdout)
-    Net::HTTP.colorize = true
-    Net::HTTP.log_headers = true
+    HttpLogger.logger = Logger.new($stdout)
+    HttpLogger.colorize = true
+    HttpLogger.log_headers = true
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
