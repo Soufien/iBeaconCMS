@@ -1,4 +1,4 @@
-require "Urbanairship"
+# require "Urbanairship"
 
 class NotificationsController < ApplicationController
 
@@ -36,7 +36,7 @@ class NotificationsController < ApplicationController
     rescue
       puts "No html content associated to the beacon: #{params[:beacon_id]}"
     end
-    response = Urbanairship.push_rich_notification(params[:device_id], params[:os], html_content)
+    # response = Urbanairship.push_rich_notification(params[:device_id], params[:os], html_content)
 
     respond_to do |format|
       if @notification.save && response && response["ok"]
