@@ -11,6 +11,12 @@
 %p
   %strong Uid:
   = @user.uid
+%p
+  %strong Device Id:
+  = @user.device_id
+%p
+  %strong Os:
+  = @user.os
 = link_to 'Edit', edit_user_path(@user)
 |
 \#{link_to 'Back', users_path}

@@ -6,6 +6,8 @@
       %th Last name
       %th Email
       %th Uid
+      %th Device Id
+      %th Os
       %th
       %th
       %th
@@ -16,6 +18,8 @@
         %td= user.last_name
         %td= user.email
         %td= user.uid
+        %td= user.device_id
+        %td= user.os
         %td= link_to 'Show', user
         %td= link_to 'Edit', edit_user_path(user)
         %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
