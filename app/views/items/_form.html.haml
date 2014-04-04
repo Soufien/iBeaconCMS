@@ -6,7 +6,9 @@
       = f.input :description
       = f.input :show_after_seconds
       = f.association :beacon
+      = link_to 'New Beacon', new_beacon_path
       = f.input :content, :as => :text
+      = f.input :video, :as => :text
 
   .form-group
     .col-sm-offset-2.col-sm-10

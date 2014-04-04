@@ -1,1 +1,1 @@
-json.extract! @item, :id, :spec, :name, :description, :content, :show_after_seconds, :beacon_id
+json.extract! @item, :id, :spec, :name, :description, :content, :video, :show_after_seconds, :beacon_id

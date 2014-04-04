@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :beacon do
     uuid ""
     major 1
-    sequence(:minor) { |n| n % 4 + 1}
+    sequence(:minor) { |n| n }
 
     factory :beacon_with_item do
       after(:create) do |beacon|
