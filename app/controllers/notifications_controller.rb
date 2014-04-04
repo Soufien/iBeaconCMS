@@ -1,4 +1,4 @@
-require "assets/urbanairship"
+require "urbanairship"
 
 class NotificationsController < ApplicationController
 
