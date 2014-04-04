@@ -1,4 +1,9 @@
 IBeaconCMS::Application.routes.draw do
+
+  resources :beacon_devices
+  match 'beacon_devices/add_device_to_beacon_range', to: 'beacon_devices#add_device_to_beacon_range', via: :post
+  match 'beacon_devices/remove_device_from_beacon_range', to: 'beacon_devices#remove_device_from_beacon_range', via: :post
+
   resources :notifications
 
   resources :apps

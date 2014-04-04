@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @beacon_device.user %>
+</p>
+
+<p>
+  <strong>Beacon:</strong>
+  <%= @beacon_device.beacon %>
+</p>
+
+<%= link_to 'Edit', edit_beacon_device_path(@beacon_device) %> |
+<%= link_to 'Back', beacon_devices_path %>

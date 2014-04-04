@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140404011352) do
+ActiveRecord::Schema.define(version: 20140404023222) do
 
   create_table "apps", force: true do |t|
     t.integer  "user_id"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20140404011352) do
   end
 
   add_index "apps", ["user_id"], name: "index_apps_on_user_id", using: :btree
+
+  create_table "beacon_devices", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "beacon_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "beacon_devices", ["beacon_id"], name: "index_beacon_devices_on_beacon_id", using: :btree
+  add_index "beacon_devices", ["user_id"], name: "index_beacon_devices_on_user_id", using: :btree
 
   create_table "beacons", force: true do |t|
     t.string   "uuid"

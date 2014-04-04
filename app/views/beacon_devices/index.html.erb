@@ -1,0 +1,29 @@
+<h1>Listing beacon_devices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Beacon</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @beacon_devices.each do |beacon_device| %>
+      <tr>
+        <td><%= beacon_device.user %></td>
+        <td><%= beacon_device.beacon %></td>
+        <td><%= link_to 'Show', beacon_device %></td>
+        <td><%= link_to 'Edit', edit_beacon_device_path(beacon_device) %></td>
+        <td><%= link_to 'Destroy', beacon_device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Beacon device', new_beacon_device_path %>
