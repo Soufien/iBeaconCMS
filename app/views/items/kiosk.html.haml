@@ -1,3 +1,5 @@
+:javascript
+  var beaconId = "#{@item.beacon_id}"
 -#TODO: Force bootstrap ?
 %section.col-lg-12.col-md-12.col-sm-12.col-xs-12
-  = @item.video.html_safe
+  = @item.video.html_safe unless @item.nil? || @item.video.nil?

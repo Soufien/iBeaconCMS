@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<!--<head>-->
+<!--&lt;!&ndash;Load Ooyala Player&ndash;&gt;-->
+<!--<script src="http://player.ooyala.custom/player.js?width=1280&height=720&embedCode=wzaWtlbDpuWXe1qAzr4Ypc6rgi6YHhqD&videoPcode=V1OXcxOpBlG1O_LvzJwTJaWHyX60"></script>-->
+
+<!--&lt;!&ndash;Load additional custom modules&ndash;&gt;-->
+<!--</head>-->
+<head>
+    <title>My Test Player V3 Web Page </title>
+    <!-- Load Ooyala Player -->
+    <!-- Put the <script> call in the head so the Player is there when the page loads. -->
+    <!-- Player query string parameters are added on the line below. -->
+    <script src='http://player.ooyala.com/v3/e18ab1da1813483499554ea2d8e67fbd'></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- Load additional custom modules -->
+    <!-- script src='/mymodule.js'></script -->
+</head>
+<body>
+My Player V3 Content.
+
+// Layout for content elements to be fetched
+<div id='playerwrapper'></div>
+<div id='metadata'>
+    -- Metadata --<br/>
+</div>
+<div id='bitrate'>
+    -- Bitrate --<br/>
+</div>
+<div id='buffer'>
+    -- Buffer --<br/>
+</div>
+<script type=text/javascript>
+
+	//TODO: double check this
+	var SERVER_URL = "http://localhost:3000";
+	var API_URL = SERVER_URL + '/notifications/broadcast_notification';
+
+    function onCreate(player) {
+        // Everything you do with the player should be done either in onCreate
+        // or as listeners on the message bus
+        // to ensure that the player is in the correct state.
+        // console.log("-- onCreate");
+        player.subscribe('*', 'myPage', function (eventName) {
+            // console.log("RECEIVED EVENT: " + eventName);
+            // Player embedded parameters go here
+
+        });
+
+
+        player.subscribe('playheadTimeChanged', 'myPage', function (eventName) {
+            pushNotification(player);
+//            var playHeadTime = player.getPlayheadTime();
+//            if (playHeadTime >= 10.000  && playHeadTime <=11.00) {
+////                alert('I hopethisworks');
+//                player.setPlayheadTime(100.000);
+//                $.post(
+//                    '/',
+//                {url:'http://google.com'}
+//                ).done(function( data ) {
+//                            alert( "Data Loaded: " );});
+//
+//                 ;
+//
+//                player.pause();
+//            }
+//            window.bufferElement.innerHTML += "Buffer length is " + player.getBufferLength() + "<br/>"
+//            window.bufferLength = newBufferLength;
+        });
+
+        //Coding specific function : If time is within the desired range Define only as a few seconds or use some sort of flag to send notification.
+
+
+        // Metadata
+        // Content information is available after contentTreeFetched, but it is best to wait until
+        // playbackReady for duration.
+//        player.subscribe('playbackReady', 'myPage', function(eventName) {
+//            window.metadataElement.innerHTML += "Title is: " + player.getTitle() + "<br/>";
+//            window.metadataElement.innerHTML += "Description is: " + player.getDescription() + "<br/>";
+//            window.metadataElement.innerHTML += "Duration is: " + player.getDuration() + "<br/>";
+//        });
+    }
+    //Synthesize the in  and out times from the json on the page
+    function pushNotification(player) {
+        //Initialize timing array?? WHere does this o
+        var timings = new Array();
+        var url = new Array();
+        var image = new Array();
+        var timeline    = new Array();
+        var flagPerTimeline = new Array();
+        var Url = "http://api.watchwith.com/v3/airings/f7c030a9-205c-4f41-8a24-66863c238be8?key=ZCUZ9VAZI7E";
+        $.getJSON(Url, function (result) {
+            timeline = result.timeline.events;
+            for (var i = 0; i < timeline.length; i++) {
+                timings[i] = timeline[i].in/1000;
+                url[i] = timeline[i].card.object.link.url;
+                image[i] = timeline[i].card.object.image.url;
+            }
+            var whichEvent;
+            var timeOfEvent = player.getPlayheadTime();
+
+        for (var j = 0; j < timeline.length; j++) {
+            if (timeOfEvent > timings[j] && timeOfEvent < timings[j] + 1) {
+//                EXAMPLE CURL:  curl -X POST -H "Content-Type: application/json" -d '{"content":"<div>TEST</div>","beacon_id":"1"}' http://localhost:3000/notifications/broadcast_notification
+                $.post(
+                        API_URL,
+//                        TODO: this should only contain content and beacon_id, trying this nested structure cause the broadcast API is not working
+						{ notification :
+							{ content: url[j],
+							  beacon_id: beaconId
+							}
+						},
+						{ content: url[j],
+						  beacon_id: beaconId
+						}
+                ).done(function (data) {
+                            alert("Data Loaded: " + url[j]);
+							console.log("called api: " + API_URL);
+                        });
+                alert(url[j]);
+            }
+        }
+        });
+
+    }
+
+    //    window.bufferElement = getElement('buffer');
+    //    window.bitrateElement = getElement('bitrate');
+    //    window.metadataElement = getElement('metadata');
+    var OO;
+    OO.ready(function () { // Surround everything with OO.ready to make sure the script has
+        // loaded and initialized completely
+        window.player = OO.Player.create('playerwrapper', 'wzaWtlbDpuWXe1qAzr4Ypc6rgi6YHhqD', {
+            onCreate: window.onCreate,
+            autoplay: true // Instead of calling object.play it is easier (and more robust) to set autoplay here
+        });
+    });
+</script>
+</body>
+</html>

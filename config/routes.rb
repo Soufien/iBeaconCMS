@@ -5,6 +5,7 @@ IBeaconCMS::Application.routes.draw do
   match 'beacon_devices/remove_device_from_beacon_range', to: 'beacon_devices#remove_device_from_beacon_range', via: :post
 
   resources :notifications
+  match 'notifications/broadcast_notification', to: 'notifications#broadcast_notification', via: :post
 
   resources :apps
 
