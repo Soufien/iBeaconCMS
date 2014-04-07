@@ -54,23 +54,26 @@ class NotificationsController < ApplicationController
   def broadcast_notification
     users = BeaconDevice.where(:beacon_id => params[:beacon_id])
     error = false
+    message = ""
+    error_num = 0
     users.each do |user|
       user = User.find(user.user_id)
       params[:notification][:device_id] = user.device_id
       params[:notification][:os] = user.os
       response = Urbanairship.push_rich_notification(user.device_id, user.os, params[:content])
       puts response
-      # TODO: uncomment this
-      # if (response && response["ok"])
-      if (response)
+      if (response && response["ok"])
         notification = Notification.new(notification_params)
         notification.save!
       else
         error = true
+        error_num = error_num + 1
+        message += "error #" + error_num.to_s + ":" + response["details"]["error"] + ", "
       end
     end
+    message = "notifications sent to all the devices near beacon: #{params[:beacon_id]}" unless (error == true)
     respond_to do |format|
-      format.json { render json: {:ok => !error}}
+      format.json { render json: {:ok => !error, :message => message}}
     end
 
   end
