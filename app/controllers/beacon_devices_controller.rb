@@ -68,33 +68,44 @@ class BeaconDevicesController < ApplicationController
   # :device_id, :beacon_id
   def add_device_to_beacon_range
     user = User.find_by_device_id(params[:device_id])
-    @beacon_device = BeaconDevice.find_by_beacon_id_and_user_id(params[:beacon_id], user.id)
-    if @beacon_device
+    if user.nil?
       respond_to do |format|
-        format.json { render json: {:ok => false, :message => "already associated user #{user.id} to beacon #{params[:beacon_id]}"}, status: :unprocessable_entity }
+        format.json { render json: {:ok => false, :message => "no user found for device id: #{params[:device_id]}"}, status: :unprocessable_entity }
       end
     else
-      @beacon_device = BeaconDevice.new(:user_id => user.id, :beacon_id => params[:beacon_id])
-      respond_to do |format|
-        if @beacon_device.save
-          format.json { render action: 'show', status: :created, location: @beacon_device }
-        else
-          format.json { render json: @beacon_device.errors, status: :unprocessable_entity }
+      @beacon_device = BeaconDevice.find_by_beacon_id_and_user_id(params[:beacon_id], user.id)
+      if @beacon_device
+        respond_to do |format|
+          format.json { render json: {:ok => false, :message => "already associated user #{user.id} to beacon #{params[:beacon_id]}"}, status: :unprocessable_entity }
+        end
+      else
+        @beacon_device = BeaconDevice.new(:user_id => user.id, :beacon_id => params[:beacon_id])
+        respond_to do |format|
+          if @beacon_device.save
+            format.json { render action: 'show', status: :created, location: @beacon_device }
+          else
+            format.json { render json: @beacon_device.errors, status: :unprocessable_entity }
+          end
         end
       end
     end
-
   end
 
   # :device_id, :beacon_id
   def remove_device_from_beacon_range
     user = User.find_by_device_id(params[:device_id])
-    @beacon_device = BeaconDevice.find_by_beacon_id_and_user_id(params[:beacon_id], user.id)
-    if (@beacon_device)
-      @beacon_device.destroy
-    end
-    respond_to do |format|
-      format.json { head :no_content }
+    if user.nil?
+      respond_to do |format|
+        format.json { render json: {:ok => false, :message => "no user found for device id: #{params[:device_id]}"}, status: :unprocessable_entity }
+      end
+    else
+      @beacon_device = BeaconDevice.find_by_beacon_id_and_user_id(params[:beacon_id], user.id)
+      if (@beacon_device)
+        @beacon_device.destroy
+      end
+      respond_to do |format|
+        format.json { head :no_content }
+      end
     end
   end
 
