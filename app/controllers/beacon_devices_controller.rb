@@ -102,9 +102,13 @@ class BeaconDevicesController < ApplicationController
       @beacon_device = BeaconDevice.find_by_beacon_id_and_user_id(params[:beacon_id], user.id)
       if (@beacon_device)
         @beacon_device.destroy
-      end
-      respond_to do |format|
-        format.json { head :no_content }
+        respond_to do |format|
+          format.json { render json: {:ok => true, :message => "removed beacon_device with params: user_id =  #{user.id}, beacon_id = #{params[:beacon_id]}"}, status: :unprocessable_entity }
+        end
+      else
+        respond_to do |format|
+          format.json { render json: {:ok => false, :message => "no beacon found for params: user_id = #{user.id}, beacon_id = #{params[:beacon_id]}"}, status: :unprocessable_entity }
+        end
       end
     end
   end
