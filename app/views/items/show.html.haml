@@ -14,11 +14,15 @@
 %p
   %strong Video:
   = @item.video
-
 %p
   %strong Preview:
   %br
   = @item.content.html_safe
+
+%p
+  %strong Goodbye Content:
+  = @item.goodbye_content
+
 = link_to 'Edit', edit_item_path(@item)
 
 |

@@ -2,10 +2,11 @@
 
 FactoryGirl.define do
   factory :item do
-    sequence(:spec)  {|n| [ 'SAMPLE', 'PRODUCT', 'HELP', 'POINTS', 'KIOSK' ][n - 1] }
+    sequence(:spec)  {|n| [ 'SAMPLE', 'PRODUCT', 'HELP', 'POINTS', 'KIOSK', 'KIOSK' ][n - 1] }
     sequence(:name) { |n| "Item #{n}" }
     sequence(:description) { |n| "Description #{n}" }
     content 'html'
+    goodbye_content 'goodbye content'
     show_after_seconds 5
 
 

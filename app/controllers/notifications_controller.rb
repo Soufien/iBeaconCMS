@@ -30,7 +30,12 @@ class NotificationsController < ApplicationController
     @notification = Notification.new(notification_params)
     #get item content associated with the beacon
     begin
-      html_content = Beacon.find(params[:beacon_id]).item.content.html_safe
+      beacon_item = Beacon.find(params[:beacon_id]).item
+      if (params[:is_goodbye_content])
+        html_content = beacon_item.goodbye_content.html_safe
+      else
+        html_content = beacon_item.content.html_safe
+      end
       @notification.content = html_content
     rescue
       puts "No html content associated to the beacon: #{params[:beacon_id]}"
