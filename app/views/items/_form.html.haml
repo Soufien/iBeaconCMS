@@ -5,7 +5,7 @@
       = f.input :name
       = f.input :description
       = f.input :show_after_seconds
-      = f.association :beacon
+      = f.association :beacon, label_method: :description
       = link_to 'New Beacon', new_beacon_path
       = f.input :content, :as => :text
       = f.input :goodbye_content, :as => :text
