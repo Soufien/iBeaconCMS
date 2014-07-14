@@ -1,0 +1,8 @@
+= simple_form_for(@template,:wrapper => :bootstrap_horizontal,  html: {class: 'form-horizontal', :multipart => true }) do |f|
+  %section.row
+    %section.col-lg-12
+      = f.input :name
+      = f.input :html_template
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit

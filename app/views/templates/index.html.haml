@@ -1,0 +1,16 @@
+%h1 Listing templates
+%table.table.table-striped
+  %thead
+    %tr
+      %th Id
+      %th Name
+      %th HTML content
+      %th Edit
+  %tbody
+    - @templates.each do |template|
+      %tr
+        %td= template.id
+        %td= template.name
+        %td= template.html_template
+        %td= link_to "Edit",  edit_template_path(template)
+  = link_to 'New Template', new_template_path

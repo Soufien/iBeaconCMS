@@ -3,7 +3,6 @@ class ItemsController < ApplicationController
 
   before_action :set_item, only: [:show, :edit, :update, :destroy, :embedded, :kiosk]
 
-
   # GET /items
   def index
     @items = Item.all
@@ -11,6 +10,8 @@ class ItemsController < ApplicationController
 
   # GET /items/1
   def show
+    @item = Item.find(params[:id])
+    @template = Template.find(@item.template_id)
   end
 
   # GET /items/new
@@ -69,7 +70,7 @@ class ItemsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def item_params
-      params.require(:item).permit(:spec, :name, :description, :beacon_id, :content, :goodbye_content, :video, :show_after_seconds)
+      params.require(:item).permit(:spec, :name, :description, :beacon_id, :content, :template_id, :goodbye_content, :video, :show_after_seconds)
     end
 
 

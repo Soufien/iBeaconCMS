@@ -1,0 +1,13 @@
+%p#notice= notice
+%p
+  %strong Id:
+  = @template.id
+%p
+  %strong Name:
+  = @template.name
+%p
+  %strong Description:
+  = @template.html_template
+= link_to 'Edit', edit_template_path(@template)
+|
+= link_to 'Back', templates_path
