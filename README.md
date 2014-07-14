@@ -1,25 +1,13 @@
-Ibeaconcms
+iBeaconCMS
 ==========
 
-Getting Started
----------------
+CMS to handle iBeacon information
 
-This repository comes equipped with a self-setup script:
+Licensing and legal issues
+--------------------------
 
-    % ./bin/setup
+  Ibeaconcms is licensed under the Apache License, version 2.0
+  See the file in the top-level of the IbeaconCms distribution called
+  LICENSE and see licenses for accompanying products
+  in the "legal" directory.
 
-After setting up, you can run the application using [foreman]:
-
-    % foreman start
-
-[foreman]: http://ddollar.github.io/foreman/
-
-Guidelines
-----------
-
-Use the following guides for getting things done, programming well, and
-programming in style.
-
-* [Protocol](http://github.com/thoughtbot/guides/blob/master/protocol)
-* [Best Practices](http://github.com/thoughtbot/guides/blob/master/best-practices)
-* [Style](http://github.com/thoughtbot/guides/blob/master/style)
