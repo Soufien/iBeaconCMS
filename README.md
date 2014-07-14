@@ -1,5 +1,7 @@
-IbeaconCms
+iBeaconCMS
 ==========
+
+CMS to handle iBeacon information
 
 Licensing and legal issues
 --------------------------
@@ -8,3 +10,4 @@ Licensing and legal issues
   See the file in the top-level of the IbeaconCms distribution called
   LICENSE and see licenses for accompanying products
   in the "legal" directory.
+

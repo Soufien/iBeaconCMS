@@ -1,3 +1,4 @@
+
 !.keep
 *.DS_Store
 *.swo
@@ -16,8 +17,6 @@
 public/assets
 
 .elasticbeanstalk/config
-
-
 
 *.rbc
 capybara-*.html
