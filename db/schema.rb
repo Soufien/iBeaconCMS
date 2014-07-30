@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140325203155) do
+ActiveRecord::Schema.define(version: 20140724235058) do
 
   create_table "apps", force: true do |t|
     t.integer  "user_id"
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20140325203155) do
 
   create_table "detections", force: true do |t|
     t.integer  "beacon_id"
-    t.integer  "user_uid"
+    t.string   "user_uid"
     t.decimal  "accuracy",   precision: 10, scale: 5
     t.integer  "proximity"
     t.integer  "rssi"

@@ -1,8 +1,5 @@
 [global]
-ApplicationName=ibeaconcms
 AwsCredentialFile=/Users/giuseppem/.elasticbeanstalk/aws_credential_file
-DevToolsEndpoint=git.elasticbeanstalk.us-west-1.amazonaws.com
-EnvironmentName=ibeaconcms-env
 EnvironmentTier=WebServer::Standard::1.0
 EnvironmentType=SingleInstance
 InstanceProfileName=
@@ -10,7 +7,10 @@ OptionSettingFile=/Users/giuseppem/Sites/iBeaconCMS/.elasticbeanstalk/optionsett
 RdsDeletionPolicy=Delete
 RdsEnabled=Yes
 RdsSourceSnapshotName=
-Region=us-west-1
 ServiceEndpoint=https://elasticbeanstalk.us-west-1.amazonaws.com
 SolutionStack=64bit Amazon Linux running Ruby 1.9.3
 
+ApplicationName=iBeaconMondaviCMS
+DevToolsEndpoint=git.elasticbeanstalk.us-west-1.amazonaws.com
+EnvironmentName=mondavi-dev
+Region=us-west-1
