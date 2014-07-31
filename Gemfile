@@ -12,9 +12,9 @@ gem 'high_voltage'
 gem 'jquery-rails'
 
 gem 'rack-timeout'
-gem 'rails', '>= 4.0.0'
+gem 'rails', '4.1.0'
 gem 'recipient_interceptor'
-gem 'sass-rails', '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.3'
 gem 'simple_form'
 gem 'title'
 gem 'uglifier'
@@ -38,10 +38,13 @@ gem 'turbolinks'
 
 gem 'jbuilder'
 
+group :development do
+  gem 'foreman'
+end
+
 group :development, :production do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'foreman'
   #gem 'spring'
   #gem 'spring-commands-rspec'
 end
@@ -58,12 +61,11 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'shoulda-matchers'
-  gem 'simplecov', require: false
+  gem 'simplecov'
   gem 'timecop'
   gem 'webmock'
 end
 
 group :staging, :production do
   gem 'rails_12factor'
-  gem 'newrelic_rpm', '>= 3.6.7'
 end
