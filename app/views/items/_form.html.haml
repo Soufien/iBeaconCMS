@@ -8,9 +8,10 @@
       = f.association :beacon, label_method: :description
       = link_to 'New Beacon', new_beacon_path
       = f.input :content, :as => :text
-      = f.input :goodbye_content, :as => :text
-      = f.input :video, :as => :text
-      = f.input :template_id
+
+      -#= f.input :goodbye_content, :as => :text
+      -#= f.input :video, :as => :text
+      -#= f.input :template_id
 
   .form-group
     .col-sm-offset-2.col-sm-10

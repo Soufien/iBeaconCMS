@@ -20,8 +20,8 @@
         %td= item.description
         %td= item.show_after_seconds
         %td= item.beacon.major.to_s + ' - ' + item.beacon.minor.to_s
-        %td= item.beacon.app.name
-        %td= item.template_id
+        %td= item.beacon.app.id.to_s
+        -#%td= items.template_id
         %td= link_to 'Show', item
         %td= link_to 'Edit', edit_item_path(item)
         %td= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }
