@@ -16,7 +16,7 @@
 
 public/assets
 
-.elasticbeanstalk/config
+.elasticbeanstalk
 
 *.rbc
 capybara-*.html
