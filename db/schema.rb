@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140714171949) do
+ActiveRecord::Schema.define(version: 20140807201024) do
 
   create_table "apps", force: true do |t|
     t.integer  "user_id"
@@ -75,14 +75,12 @@ ActiveRecord::Schema.define(version: 20140714171949) do
   create_table "items", force: true do |t|
     t.string   "spec"
     t.string   "name"
-    t.string   "description"
+    t.string   "description",        limit: 10000
     t.text     "content"
     t.integer  "show_after_seconds"
     t.integer  "beacon_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "video"
-    t.string   "goodbye_content"
     t.integer  "template_id"
   end
 
@@ -99,11 +97,25 @@ ActiveRecord::Schema.define(version: 20140714171949) do
 
   add_index "notifications", ["beacon_id"], name: "index_notifications_on_beacon_id", using: :btree
 
+  create_table "template_photos", force: true do |t|
+    t.string   "name"
+    t.string   "title"
+    t.string   "description"
+    t.string   "photolink"
+    t.integer  "template_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "item_id"
+  end
+
+  add_index "template_photos", ["template_id"], name: "index_template_photos_on_template_id", using: :btree
+
   create_table "templates", force: true do |t|
     t.string   "name"
     t.string   "html_template"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "item_id"
   end
 
   create_table "users", force: true do |t|

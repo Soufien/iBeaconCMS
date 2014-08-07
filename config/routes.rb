@@ -1,5 +1,7 @@
 IBeaconCMS::Application.routes.draw do
 
+  resources :template_photos
+
   resources :templates
 
   resources :beacon_devices
