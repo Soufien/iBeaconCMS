@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140807201024) do
+ActiveRecord::Schema.define(version: 20140811062346) do
 
   create_table "apps", force: true do |t|
     t.integer  "user_id"
@@ -75,7 +75,7 @@ ActiveRecord::Schema.define(version: 20140807201024) do
   create_table "items", force: true do |t|
     t.string   "spec"
     t.string   "name"
-    t.string   "description",        limit: 10000
+    t.string   "description"
     t.text     "content"
     t.integer  "show_after_seconds"
     t.integer  "beacon_id"
@@ -110,12 +110,32 @@ ActiveRecord::Schema.define(version: 20140807201024) do
 
   add_index "template_photos", ["template_id"], name: "index_template_photos_on_template_id", using: :btree
 
+  create_table "template_wines", force: true do |t|
+    t.string   "name"
+    t.string   "taste_notes"
+    t.float    "price"
+    t.string   "wine_specs_vintage",     default: "0.0"
+    t.float    "wine_specs_sugar",       default: 0.0
+    t.string   "wine_specs_appellation", default: "0.0"
+    t.float    "wine_specs_acid",        default: 0.0
+    t.float    "wine_specs_alcohol",     default: 0.0
+    t.float    "wine_specs_ph",          default: 0.0
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "template_wines", ["item_id"], name: "index_template_wines_on_item_id", using: :btree
+
   create_table "templates", force: true do |t|
     t.string   "name"
-    t.string   "html_template"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "item_id"
+    t.string   "description_1"
+    t.string   "description_2"
+    t.string   "photo_link_1"
+    t.string   "photo_link_2"
   end
 
   create_table "users", force: true do |t|
