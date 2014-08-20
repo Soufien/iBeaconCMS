@@ -18,5 +18,9 @@
         %li{class: active_class('detections')}
           = link_to 'detections', detections_path
         %li{class: active_class('Templates')}
-          = link_to 'templates', templates_path
+          = link_to 'template articles', templates_path
+        %li{class: active_class('Template_Wine')}
+          = link_to 'template photos', template_photos_path
+        %li{class: active_class('Templates')}
+          = link_to 'template wines', template_wines_path
       -#= render 'navbar_login_logout_form'

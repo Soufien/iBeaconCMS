@@ -3,9 +3,9 @@ class CreateTemplatePhoto < ActiveRecord::Migration
     create_table :template_photos do |t|
       t.string :name
       t.string :title
-      t.string :description
+      t.string :description,  :limit => 5000
       t.string :photolink
-      t.references :template, index: true
+      t.references :item, index: true
       t.timestamps
     end
   end

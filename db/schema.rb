@@ -81,7 +81,6 @@ ActiveRecord::Schema.define(version: 20140811062346) do
     t.integer  "beacon_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "template_id"
   end
 
   add_index "items", ["beacon_id"], name: "index_items_on_beacon_id", using: :btree
@@ -100,26 +99,25 @@ ActiveRecord::Schema.define(version: 20140811062346) do
   create_table "template_photos", force: true do |t|
     t.string   "name"
     t.string   "title"
-    t.string   "description"
+    t.string   "description", limit: 5000
     t.string   "photolink"
-    t.integer  "template_id"
+    t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "item_id"
   end
 
-  add_index "template_photos", ["template_id"], name: "index_template_photos_on_template_id", using: :btree
+  add_index "template_photos", ["item_id"], name: "index_template_photos_on_item_id", using: :btree
 
   create_table "template_wines", force: true do |t|
     t.string   "name"
-    t.string   "taste_notes"
-    t.float    "price"
-    t.string   "wine_specs_vintage",     default: "0.0"
-    t.float    "wine_specs_sugar",       default: 0.0
-    t.string   "wine_specs_appellation", default: "0.0"
-    t.float    "wine_specs_acid",        default: 0.0
-    t.float    "wine_specs_alcohol",     default: 0.0
-    t.float    "wine_specs_ph",          default: 0.0
+    t.string   "taste_notes",            limit: 5000
+    t.float    "price",                               default: 0.0
+    t.string   "wine_specs_vintage",                  default: "0.0"
+    t.float    "wine_specs_sugar",                    default: 0.0
+    t.string   "wine_specs_appellation",              default: "0.0"
+    t.float    "wine_specs_acid",                     default: 0.0
+    t.float    "wine_specs_alcohol",                  default: 0.0
+    t.float    "wine_specs_ph",                       default: 0.0
     t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -129,14 +127,16 @@ ActiveRecord::Schema.define(version: 20140811062346) do
 
   create_table "templates", force: true do |t|
     t.string   "name"
+    t.string   "description_1", limit: 5000
+    t.string   "description_2", limit: 5000
+    t.string   "photo_link_1",  limit: 500
+    t.string   "photo_link_2",  limit: 500
+    t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "item_id"
-    t.string   "description_1"
-    t.string   "description_2"
-    t.string   "photo_link_1"
-    t.string   "photo_link_2"
   end
+
+  add_index "templates", ["item_id"], name: "index_templates_on_item_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -1,0 +1,32 @@
+%h1 Listing templates Wines
+%table.table.table-striped
+  %thead
+    %tr
+      %th Id
+      %th Name
+      %th Taste Notes
+      %th Price
+      %th Wine Specs Vintage
+      %th Wine Specs Sugar
+      %th Wine Specs Appellation
+      %th Wine Specs Acid
+      %th Wine Specs Alcohol
+      %th Wine Specs PH
+      %th Item Id
+      %th Edit
+  %tbody
+    - @template_wines.each do |template_wine|
+      %tr
+        %td= template_wine.id
+        %td= template_wine.name
+        %td= template_wine.taste_notes
+        %td= template_wine.price
+        %td= template_wine.wine_specs_vintage
+        %td= template_wine.wine_specs_sugar
+        %td= template_wine.wine_specs_appellation
+        %td= template_wine.wine_specs_acid
+        %td= template_wine.wine_specs_alcohol
+        %td= template_wine.wine_specs_ph
+        %td= template_wine.item_id
+        %td= link_to "Edit",  edit_template_wine_path(template_wine)
+  = link_to 'New Template', new_template_wine_path

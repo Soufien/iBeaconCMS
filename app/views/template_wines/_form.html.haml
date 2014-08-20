@@ -1,0 +1,16 @@
+= simple_form_for(@template_wine,:wrapper => :bootstrap_horizontal,  html: {class: 'form-horizontal', :multipart => true }) do |f|
+  %section.row
+    %section.col-lg-12
+      = f.input :name
+      = f.input :taste_notes
+      = f.input :price
+      = f.input :wine_specs_sugar
+      = f.input :wine_specs_vintage
+      = f.input :wine_specs_appellation
+      = f.input :wine_specs_acid
+      = f.input :wine_specs_alcohol
+      = f.input :wine_specs_ph
+      = f.association :item
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit

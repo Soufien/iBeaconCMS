@@ -2,7 +2,11 @@
   %section.row
     %section.col-lg-12
       = f.input :name
-      = f.input :html_template
+      = f.input :description_1
+      = f.input :description_2
+      = f.input :photo_link_1
+      = f.input :photo_link_2
+      = f.association :item
   .form-group
     .col-sm-offset-2.col-sm-10
       = f.submit

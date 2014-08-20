@@ -4,13 +4,19 @@
     %tr
       %th Id
       %th Name
-      %th HTML content
+      %th Description 1
+      %th Description 2
+      %th Photo link 1
+      %th Photo link 2
       %th Edit
   %tbody
     - @templates.each do |template|
       %tr
         %td= template.id
         %td= template.name
-        %td= template.html_template
+        %td= template.description_1
+        %td= template.description_2
+        %td= template.photo_link_1
+        %td= template.photo_link_2
         %td= link_to "Edit",  edit_template_path(template)
   = link_to 'New Template', new_template_path

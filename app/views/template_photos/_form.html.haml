@@ -1,0 +1,11 @@
+= simple_form_for(@template_photo,:wrapper => :bootstrap_horizontal,  html: {class: 'form-horizontal', :multipart => true }) do |f|
+  %section.row
+    %section.col-lg-12
+      = f.input :name
+      = f.input :title
+      = f.input :description
+      = f.input :photolink
+      = f.association :item
+  .form-group
+    .col-sm-offset-2.col-sm-10
+      = f.submit

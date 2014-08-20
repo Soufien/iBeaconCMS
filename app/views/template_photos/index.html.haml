@@ -1,0 +1,22 @@
+%h1 Listing templates Photos
+%table.table.table-striped
+  %thead
+    %tr
+      %th Id
+      %th Name
+      %th Title
+      %th Description
+      %th Photo link
+      %th Item
+      %th Edit
+  %tbody
+    - @template_photos.each do |template_photo|
+      %tr
+        %td= template_photo.id
+        %td= template_photo.name
+        %td= template_photo.title
+        %td= template_photo.description
+        %td= template_photo.photolink
+        %td= template_photo.item_id
+        %td= link_to "Edit",  edit_template_photo_path(template_photo)
+  = link_to 'New Template', new_template_photo_path

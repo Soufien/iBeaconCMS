@@ -4,7 +4,6 @@ class CreateBeacons < ActiveRecord::Migration
       t.string :uuid, index: true
       t.integer :major, index: true
       t.integer :minor, index: true
-
       t.timestamps
     end
 

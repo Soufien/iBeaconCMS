@@ -7,7 +7,6 @@ class CreateItems < ActiveRecord::Migration
       t.text :content
       t.integer :show_after_seconds
       t.references :beacon, index: true
-
       t.timestamps
     end
   end

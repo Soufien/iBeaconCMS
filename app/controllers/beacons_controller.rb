@@ -10,6 +10,7 @@ class BeaconsController < ApplicationController
   # GET /beacons
   def index
     @beacons = Beacon.all
+    @template_wines = TemplateWine.all
   end
 
   # GET /beacons/1
