@@ -51,7 +51,8 @@ class UsersController < ApplicationController
 
   def mobile_user
 
-    @user = User.find_or_create_by(user_params)
+    @user = User.find_or_create_by(email:user_params[:email],first_name:user_params[:first_name],last_name:user_params[:last_name]);
+
 
     if @user.errors.count == 0
       render json: @user
