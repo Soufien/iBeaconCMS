@@ -69,6 +69,6 @@ class TemplateWinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def template_wine_params
-      params[:template_wine]
+      params[:template_wine].permit(:name, :taste_notes, :price ,:wine_specs_vintage,:wine_specs_sugar,:wine_specs_appellation, :wine_specs_acid , :wine_specs_alcohol, :wine_specs_ph, :item_id)
     end
 end

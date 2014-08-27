@@ -69,6 +69,6 @@ class TemplatePhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def template_photo_params
-      params[:template_photo]
+      params[:template_photo].permit(:name, :description, :title ,:photolink , :item_id)
     end
 end
