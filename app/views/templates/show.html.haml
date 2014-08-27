@@ -6,8 +6,17 @@
   %strong Name:
   = @template.name
 %p
-  %strong Description:
-  = @template.html_template
+  %strong Description 1:
+  = @template.description_1
+%p
+  %strong Description 2:
+  = @template.description_2
+%p
+  %strong photo_link_1:
+  = @template.photo_link_1
+%p
+  %strong photo_link_2:
+  = @template.photo_link_2
 = link_to 'Edit', edit_template_path(@template)
 |
 = link_to 'Back', templates_path
