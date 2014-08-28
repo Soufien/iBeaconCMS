@@ -1,0 +1,40 @@
+%p#notice= notice
+%p
+  %strong Id:
+  = @template_wine.id
+%p
+  %strong Name:
+  = @template_wine.name
+%p
+  %strong  Price:
+  = @template_wine.photo_link
+%p
+  %strong Taste Notes:
+  = @template_wine.taste_notes
+%p
+  %strong  Photo link:
+  = @template_wine.photo_link
+%p
+  %strong Wine Vintage:
+  = @template_wine.wine_specs_vintage
+%p
+  %strong Wine Sugar:
+  = @template_wine.wine_specs_sugar
+%p
+  %strong Wine PH:
+  = @template_wine.wine_specs_ph
+%p
+  %strong Wine alcohol:
+  = @template_wine.wine_specs_alcohol
+%p
+  %strong Wine Price Description:
+  = @template_wine.wine_specs_price_description
+%p
+  %strong Wine acid:
+  = @template_wine.wine_specs_acid
+%p
+  %strong Item Id:
+  = @template_wine.item_id
+= link_to 'Edit', edit_template_path(@template_wine)
+|
+= link_to 'Back', template_wines_path

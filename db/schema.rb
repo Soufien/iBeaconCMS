@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140811062346) do
+ActiveRecord::Schema.define(version: 20140828183735) do
 
   create_table "apps", force: true do |t|
     t.integer  "user_id"
@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 20140811062346) do
 
   create_table "detections", force: true do |t|
     t.integer  "beacon_id"
-    t.integer  "user_uid"
-    t.decimal  "accuracy",   precision: 10, scale: 5
+    t.integer  "user_uid",   limit: 8
+    t.decimal  "accuracy",             precision: 10, scale: 5
     t.integer  "proximity"
     t.integer  "rssi"
     t.datetime "created_at"
@@ -110,17 +110,19 @@ ActiveRecord::Schema.define(version: 20140811062346) do
 
   create_table "template_wines", force: true do |t|
     t.string   "name"
-    t.string   "taste_notes",            limit: 5000
-    t.float    "price",                               default: 0.0
-    t.string   "wine_specs_vintage",                  default: "0.0"
-    t.float    "wine_specs_sugar",                    default: 0.0
-    t.string   "wine_specs_appellation",              default: "0.0"
-    t.float    "wine_specs_acid",                     default: 0.0
-    t.float    "wine_specs_alcohol",                  default: 0.0
-    t.float    "wine_specs_ph",                       default: 0.0
+    t.string   "taste_notes",                  limit: 5000
+    t.float    "price",                                     default: 0.0
+    t.string   "wine_specs_vintage",                        default: "0.0"
+    t.float    "wine_specs_sugar",                          default: 0.0
+    t.string   "wine_specs_appellation",                    default: "0.0"
+    t.float    "wine_specs_acid",                           default: 0.0
+    t.float    "wine_specs_alcohol",                        default: 0.0
+    t.float    "wine_specs_ph",                             default: 0.0
     t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_link"
+    t.string   "wine_specs_price_description"
   end
 
   add_index "template_wines", ["item_id"], name: "index_template_wines_on_item_id", using: :btree
