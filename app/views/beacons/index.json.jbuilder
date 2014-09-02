@@ -19,7 +19,7 @@ json.array!(@beacons) do |beacon|
         json.title beacon.item.template_photo.title.to_s
         json.description beacon.item.template_photo.description.to_s
         json.photolink beacon.item.template_photo.photolink.to_s
-        # json.url_image beacon.item.template_photo.url_image.to_s
+        json.url_image beacon.item.template_photo.url_image.to_s
       end
     end
     if beacon.item.name === "Template2"

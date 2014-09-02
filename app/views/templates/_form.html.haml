@@ -6,7 +6,18 @@
       = f.input :description_2
       = f.input :photo_link_1
       = f.input :photo_link_2
+      = f.file_field :url_image_1
+      = f.file_field :url_image_2
       = f.association :item
+    %p
+      %label
+        Remove url_image_1
+        = f.check_box :remove_url_image_1
+    %p
+      %label
+        Remove url_image_2
+        = f.check_box :remove_url_image_2
+    Remove avatar
   .form-group
     .col-sm-offset-2.col-sm-10
       = f.submit

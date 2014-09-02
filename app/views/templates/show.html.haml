@@ -17,6 +17,12 @@
 %p
   %strong photo_link_2:
   = @template.photo_link_2
+%p
+  %strong image1:
+  = image_tag(@template.url_image_1)
+%p
+  %strong image2:
+  = image_tag(@template.url_image_2)
 = link_to 'Edit', edit_template_path(@template)
 |
 = link_to 'Back', templates_path

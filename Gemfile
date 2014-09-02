@@ -38,6 +38,13 @@ gem 'turbolinks'
 
 gem 'jbuilder'
 
+gem 'carrierwave'
+
+gem 'nokogiri', '~>1.5.0'
+
+gem 'fog', '~> 1.3.1'
+
+
 group :development do
   gem 'foreman'
 end

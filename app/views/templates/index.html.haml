@@ -8,6 +8,8 @@
       %th Description 2
       %th Photo link 1
       %th Photo link 2
+      %th Image url 1
+      %th Image url 2
       %th Edit
   %tbody
     - @templates.each do |template|
@@ -18,5 +20,9 @@
         %td= template.description_2
         %td= template.photo_link_1
         %td= template.photo_link_2
+        -if !template.url_image_1.nil?
+          %td= image_tag(template.url_image_1)
+        -if !template.url_image_2.nil?
+          %td= image_tag(template.url_image_2)
         %td= link_to "Edit",  edit_template_path(template)
   = link_to 'New Template', new_template_path

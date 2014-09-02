@@ -35,6 +35,10 @@
 %p
   %strong Item Id:
   = @template_wine.item_id
-= link_to 'Edit', edit_template_path(@template_wine)
+%p
+  %strong image1:
+  = image_tag(@template_wine.url_image_1)
+
+= link_to 'Edit', edit_template_wine_path(@template_wine)
 |
 = link_to 'Back', template_wines_path

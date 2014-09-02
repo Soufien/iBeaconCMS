@@ -5,6 +5,11 @@
       = f.input :title
       = f.input :description
       = f.input :photolink
+      = f.file_field :url_image_1
+    %p
+      %label
+        Remove url_image_1
+        = f.check_box :remove_url_image_1
       = f.association :item
   .form-group
     .col-sm-offset-2.col-sm-10
