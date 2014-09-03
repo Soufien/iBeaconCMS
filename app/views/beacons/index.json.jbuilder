@@ -19,7 +19,7 @@ json.array!(@beacons) do |beacon|
         json.title beacon.item.template_photo.title.to_s
         json.description beacon.item.template_photo.description.to_s
         json.photolink beacon.item.template_photo.photolink.to_s
-        json.url_image beacon.item.template_photo.url_image.to_s
+        json.url_image beacon.item.template_photo.url_image_1.to_s
       end
     end
     if beacon.item.name === "Template2"
@@ -30,8 +30,8 @@ json.array!(@beacons) do |beacon|
            json.description_2 beacon.item.template.description_2.to_s
            json.photo_link_1 beacon.item.template.photo_link_1.to_s
            json.photo_link_2 beacon.item.template.photo_link_2.to_s
-           # json.url_image_1 beacon.item.template.url_image_1.to_s
-           # json.url_image_2 beacon.item.template.url_image_2.to_s
+           json.url_image_1 beacon.item.template.url_image_1.to_s
+           json.url_image_2 beacon.item.template.url_image_2.to_s
       end
     end
     if beacon.item.name === "Template3"
@@ -50,7 +50,7 @@ json.array!(@beacons) do |beacon|
            json.wine_specs_price_description template_wine.wine_specs_price_description.to_s
            json.photo_link template_wine.photo_link.to_s
            json.item_id template_wine.item_id.to_s
-           # json.url_image template_wine.url_image.to_s
+           json.url_image template_wine.url_image_1.to_s
         end
       end
     end
