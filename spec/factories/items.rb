@@ -6,9 +6,7 @@ FactoryGirl.define do
     sequence(:name) { |n| "Item #{n}" }
     sequence(:description) { |n| "Description #{n}" }
     content 'html'
-    goodbye_content 'goodbye content'
     show_after_seconds 5
-
 
     factory :item_with_beacon do
       association :beacon, factory: :beacon

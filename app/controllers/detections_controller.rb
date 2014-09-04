@@ -4,8 +4,9 @@ class DetectionsController < ApplicationController
   protect_from_forgery :except => :create
 
   before_action :set_detection, only: [:show, :edit, :update, :destroy]
-
   before_action :detection_beacon, only: [:create]
+
+  skip_before_action :authenticate_user!, only: [:create]
 
   # GET /detections
   def index

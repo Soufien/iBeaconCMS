@@ -1,10 +1,7 @@
 class AppsController < ApplicationController
-
-  before_action :authenticate_user!
-
-  load_and_authorize_resource # ACL
-
   before_action :set_app, only: [:show, :edit, :update, :destroy]
+
+  #load_and_authorize_resource
 
   # GET /apps
   # GET /apps.json

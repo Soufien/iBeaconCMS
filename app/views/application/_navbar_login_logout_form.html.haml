@@ -1,15 +1,16 @@
+-#- unless user_signed_in?
+-#  = form_tag new_user_session_path, {class: 'navbar-form navbar-right', role: 'form'} do
+-#    .form-group
+-#      = text_field_tag 'user[email]', "", {class: 'form-control', placeholder:'Email'}
+-#    .form-group
+-#      = password_field_tag 'user[password]', "", {class: 'form-control', placeholder:'Password'}
+-#    = submit_tag 'Sign in', {class: 'btn btn-success'}
+-#- else
 
-- unless user_signed_in?
-  = form_tag new_user_session_path, {class: 'navbar-form navbar-right', role: 'form'} do
-    .form-group
-      = text_field_tag 'user[email]', "", {class: 'form-control', placeholder:'Email'}
-    .form-group
-      = password_field_tag 'user[password]', "", {class: 'form-control', placeholder:'Password'}
-    = submit_tag 'Sign in', {class: 'btn btn-success'}
-- else
+- if user_signed_in?
   %form.navbar-form.pull-right
-    %span{ :style => "color: white;" }
+    %span{ :style => "color: gray;" }
       Logged in as
       %strong
         = current_user.full_name
-    = link_to('Logout', destroy_user_session_path, {class: 'btn btn-success', :method => :delete})
+    = link_to('Logout', destroy_user_session_path, {class: 'btn btn-primary', :method => :delete})

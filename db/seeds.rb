@@ -1,10 +1,16 @@
-#Users
+# Users
 
 #users = FactoryGirl.create_list(:user, counter)
+FactoryGirl.create(:user,
+                   first_name: "Admin",
+                   last_name: "User",
+                   email: "sfdigitaleng@slalom.com",
+                   password: "ChangeMe!")
+
 users = FactoryGirl.create_list(:user, 2)
 
 
-#Apps
+# Apps
 a1 = FactoryGirl.create(:app,
                         name: "Sephora",
                         description: "Sephora app",
@@ -15,7 +21,7 @@ a1 = FactoryGirl.create(:app,
 #                        description: "Levis app",
 #                        user: users[1])
 
-#Beacons
+# Beacons
 counter = 6
 FactoryGirl.create_list(:beacon_with_item, counter, uuid: "B9407F30-F5F8-466E-AFF9-25556B57FE6D", app: a1)
 #FactoryGirl.create_list(:beacon_with_item, counter, uuid: "B9407F30-F5F8-466E-AFF9-ABCDEFGHILMN", app: a2)

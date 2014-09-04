@@ -6,6 +6,7 @@ class BeaconsController < ApplicationController
   protect_from_forgery :except => :content
 
   before_action :set_beacon, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :content]
 
   # GET /beacons
   def index

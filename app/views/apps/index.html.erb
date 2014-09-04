@@ -15,7 +15,7 @@
   <tbody>
     <% @apps.each do |app| %>
       <tr>
-        <td><%= app.user %></td>
+        <td><%= app.user.full_name %></td>
         <td><%= app.name %></td>
         <td><%= app.description %></td>
         <td><%= link_to 'Show', app %></td>

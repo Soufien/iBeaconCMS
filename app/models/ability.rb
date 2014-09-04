@@ -29,7 +29,9 @@ class Ability
     # See the wiki for details:
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
 
-    if user
+    if user.admin?
+      can :manage, :all
+    else
       can :manage, App, :user => { :id => user.id }
       can :manage, Beacon, :app => { :user => { :id => user.id }}
     end
