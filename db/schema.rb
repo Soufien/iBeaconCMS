@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140902205325) do
+ActiveRecord::Schema.define(version: 20140908173749) do
 
   create_table "apps", force: true do |t|
     t.integer  "user_id"
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 20140902205325) do
   create_table "template_photos", force: true do |t|
     t.string   "name"
     t.string   "title"
-    t.string   "description", limit: 5000
+    t.text     "description"
     t.string   "photolink"
     t.integer  "item_id"
     t.datetime "created_at"
@@ -111,14 +111,14 @@ ActiveRecord::Schema.define(version: 20140902205325) do
 
   create_table "template_wines", force: true do |t|
     t.string   "name"
-    t.string   "taste_notes",                  limit: 5000
-    t.float    "price",                                     default: 0.0
-    t.string   "wine_specs_vintage",                        default: "0.0"
-    t.float    "wine_specs_sugar",                          default: 0.0
-    t.string   "wine_specs_appellation",                    default: "0.0"
-    t.float    "wine_specs_acid",                           default: 0.0
-    t.float    "wine_specs_alcohol",                        default: 0.0
-    t.float    "wine_specs_ph",                             default: 0.0
+    t.text     "taste_notes"
+    t.float    "price",                        default: 0.0
+    t.string   "wine_specs_vintage",           default: "0.0"
+    t.float    "wine_specs_sugar",             default: 0.0
+    t.string   "wine_specs_appellation",       default: "0.0"
+    t.float    "wine_specs_acid",              default: 0.0
+    t.float    "wine_specs_alcohol",           default: 0.0
+    t.float    "wine_specs_ph",                default: 0.0
     t.integer  "item_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -131,8 +131,8 @@ ActiveRecord::Schema.define(version: 20140902205325) do
 
   create_table "templates", force: true do |t|
     t.string   "name"
-    t.string   "description_1", limit: 5000
-    t.string   "description_2", limit: 5000
+    t.text     "description_1"
+    t.text     "description_2"
     t.string   "photo_link_1",  limit: 500
     t.string   "photo_link_2",  limit: 500
     t.integer  "item_id"

@@ -10,7 +10,7 @@ gem 'email_validator'
 gem 'flutie'
 gem 'high_voltage'
 gem 'jquery-rails'
-
+gem 'figaro'
 gem 'rack-timeout'
 gem 'rails', '4.1.0'
 gem 'recipient_interceptor'
@@ -39,6 +39,8 @@ gem 'turbolinks'
 gem 'jbuilder'
 
 gem 'carrierwave'
+gem 'carrierwave_direct'
+gem 's3_direct_upload'
 
 gem 'nokogiri', '~>1.5.0'
 

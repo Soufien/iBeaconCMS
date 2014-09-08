@@ -1,0 +1,12 @@
+%table{ :name => "Excel" }
+%tr{ :style => "font-weight:bold;" }
+%td id
+%td beacon id
+%td accuracy
+
+- @detections.each do |detection|
+%tr
+%td=detection.id
+%td=detection.beacon_id
+%td=detection.accuracy
+%td{ :style => "color:blue;" }=path_to_url(example.document.url)

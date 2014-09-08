@@ -19,6 +19,9 @@ class TemplatePhotosController < ApplicationController
 
   # GET /template_photos/1/edit
   def edit
+
+    @uploader = TemplatePhoto.new.url_image_1
+    @uploader.success_action_redirect = edit_template_photo_url(@template_photo)
   end
 
   # POST /template_photos

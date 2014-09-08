@@ -10,7 +10,11 @@ class DetectionsController < ApplicationController
 
   # GET /detections
   def index
-    @detections = Detection.all
+    @detections = Detection.order(:id)
+    respond_to do |format|
+      format.html
+      format.csv {send_data @detections.to_csv}
+    end
   end
 
   # GET /detections/1
