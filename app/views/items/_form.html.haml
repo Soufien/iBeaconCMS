@@ -1,18 +1,48 @@
 = simple_form_for(@item,:wrapper => :bootstrap_horizontal,  html: {class: 'form-horizontal', :multipart => true }) do |f|
   %section.row
-    %section.col-lg-12
-      = f.input :spec
-      = f.input :name
-      = f.input :description
-      = f.input :show_after_seconds
-      = f.association :beacon, label_method: :description
-      = link_to 'New Beacon', new_beacon_path
-      = f.input :content, :as => :text
-
-      -#= f.input :goodbye_content, :as => :text
-      -#= f.input :video, :as => :text
-      -#= f.input :template_id
-
+    %section.col-lg-2
+      = f.label :spec, 'Beacon location'
+    %section.col-lg-6
+      = f.input_field :spec
+  %section.row
+    %section.col-lg-2
+      = f.label :name, 'Template'
+    %section.col-lg-6
+      = f.select :name,  [["Template Photo","Template1"],["Template Article", "Template2"],["Template Wine Detail", "Template3"]]
+  %section.row
+    %section.col-lg-2
+      = f.label :description, 'Description'
+    %section.col-lg-6
+      = f.input_field :description
+  %section.row
+    %section.col-lg-2
+      = f.label :show_after_seconds, 'Show after seconds'
+    %section.col-lg-6
+      = f.input_field :show_after_seconds
+  %section.row
+    %section.col-lg-2
+      = f.label :beacon, 'Beacon'
+    %section.col-lg-8
+      = f.association :beacon, label_method: :description,label:false
+    %section.row
+    - if @item.name == 'Template1'
+      .TemplateArticle.hide
+        %h4.something Template Article Asssociation
+        = f.simple_fields_for :template, @item.template do |template_builder|
+          = render 'template2_partial', :template_builder => template_builder
+      .TemplatePhoto
+        %h4.something Template Photo Asssociation
+        = f.simple_fields_for :template_photo, @item.template_photo do |template_photo_builder|
+          = render 'template1_partial', :template_photo_builder => template_photo_builder
+    - elsif @item.name == 'Template2'
+      .TemplateArticle
+        %h4.something Template Article Asssociation
+        = f.simple_fields_for :template, @item.template do |template_builder|
+          = render 'template2_partial', :template_builder => template_builder
+      .TemplatePhoto.hide
+        %h4.something Template Photo Asssociation
+        = f.simple_fields_for :template_photo, @item.template_photo do |template_photo_builder|
+          = render 'template1_partial', :template_photo_builder => template_photo_builder
   .form-group
     .col-sm-offset-2.col-sm-10
       = f.submit

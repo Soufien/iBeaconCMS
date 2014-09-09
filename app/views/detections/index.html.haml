@@ -1,26 +1,4 @@
 %h1 Listing detections
-%table.table.table-striped
-  %thead
-    %tr
-      %th Beacon
-      %th User
-      %th Accuracy
-      %th Proximity
-      %th Rssi
-      %th
-      %th
-      %th
-  %tbody
-    -#- @detections.each do |detection|
-    -#  %tr
-    -#    %td= detection.beacon.description
-    -#    %td= detection.user.email
-    -#    %td= detection.accuracy
-    -#    %td= detection.proximity
-    -#    %td= detection.rssi
-    -#    %td= link_to 'Show', detection
-    -#    %td= link_to 'Edit', edit_detection_path(detection)
-    -#    %td= link_to 'Destroy', detection, method: :delete, data: { confirm: 'Are you sure?' }
 %br/
 = link_to 'Download detection file in csv format', detections_path(format: "csv") |
 = link_to 'New Detection', new_detection_path

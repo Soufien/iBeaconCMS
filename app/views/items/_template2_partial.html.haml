@@ -1,0 +1,21 @@
+%section.row
+  %section.col-lg-4
+    = template_builder.label :name, "Template Article Name"
+  %section.col-lg-8
+    = template_builder.input_field :name
+  %section.col-lg-4
+    = template_builder.label :description_1, "Template Description"
+  %section.col-lg-8
+    = template_builder.input_field :description_1
+  %section.col-lg-4
+    = template_builder.label :photo_link_1, "Photo link Local(Phone)"
+  %section.col-lg-8
+    = template_builder.input_field :photo_link_1
+  %section.col-lg-4
+    = template_builder.label :url_image_1, "Url Image "
+  %section.col-lg-8
+    = template_builder.input_field :url_image_1
+  %section.col-lg-4
+    = template_builder.label :item, "Related Page Same as beacon location, if new location leave blank fill in later with edit operation "
+  %section.col-lg-8
+    = template_builder.association :item,label_method: :spec, label:false

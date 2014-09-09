@@ -1,0 +1,25 @@
+%section.row
+%section.col-lg-4
+  = template_photo_builder.label :name, "Template Photo Name"
+%section.col-lg-8
+  = template_photo_builder.input_field :name
+%section.col-lg-4
+  = template_photo_builder.label :title, "Template Title"
+%section.col-lg-8
+  = template_photo_builder.input_field :title
+%section.col-lg-4
+  = template_photo_builder.label :description, "Template Description"
+%section.col-lg-8
+  = template_photo_builder.input_field :description
+%section.col-lg-4
+  = template_photo_builder.label :photolink, "Photo link Local(Phone)"
+%section.col-lg-8
+  = template_photo_builder.input_field :photolink
+%section.col-lg-4
+  = template_photo_builder.label :url_image_1, "Url Image"
+%section.col-lg-8
+  = template_photo_builder.input_field :url_image_1
+%section.col-lg-4
+  = template_photo_builder.label :item, "Related Page Same as beacon location, if new location leave blank fill in later with edit operation "
+%section.col-lg-8
+  = template_photo_builder.association :item,label_method: :spec, label:false

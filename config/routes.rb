@@ -27,6 +27,7 @@ IBeaconCMS::Application.routes.draw do
     member do
       get 'embedded'
       get 'kiosk'
+      get 'template'
     end
   end
 

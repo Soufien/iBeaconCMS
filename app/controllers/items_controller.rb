@@ -16,6 +16,12 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    if (@item.name == 'Template1')
+      @item.template_photo = TemplatePhoto.new
+    elsif (@item.name == 'Template2')
+      @item.template = Template.new
+    end
+
   end
 
   # GET /items/1/edit
@@ -25,7 +31,6 @@ class ItemsController < ApplicationController
   # POST /items
   def create
     @item = Item.new(item_params)
-
     if @item.save
       redirect_to @item, notice: 'Item was successfully created.'
     else
@@ -44,6 +49,10 @@ class ItemsController < ApplicationController
 
   # DELETE /items/1
   def destroy
+    @template = Template.find(@item.template)
+    @template_photo = TemplatePhoto.find(@item.template_photo)
+    @template.destroy
+    @template_photo.destroy
     @item.destroy
     redirect_to items_url, notice: 'Item was successfully destroyed.'
   end
@@ -69,7 +78,15 @@ class ItemsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def item_params
-      params.require(:item).permit(:spec, :name, :description, :beacon_id, :content, :template_id, :goodbye_content, :video, :show_after_seconds)
+      params.require(:item).permit(:spec,
+                                   :name,
+                                   :description,
+                                   :beacon_id,
+                                   :content,
+                                   :template_id,
+                                   :show_after_seconds,
+                                   template_attributes:[:id,:name,:description_1,:photo_link_1,:url_image_1,:item_id],
+                                   template_photo_attributes:[:id,:name,:title,:description,:photolink,:url_image_1,:item_id])
     end
 
 
