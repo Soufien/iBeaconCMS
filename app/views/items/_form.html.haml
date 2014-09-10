@@ -8,7 +8,7 @@
     %section.col-lg-2
       = f.label :name, 'Template'
     %section.col-lg-6
-      = f.select :name,  [["Template Photo","Template1"],["Template Article", "Template2"],["Template Wine Detail", "Template3"]]
+      = f.select :name,  [["",""],["Template Photo","Template1"],["Template Article", "Template2"]]
   %section.row
     %section.col-lg-2
       = f.label :description, 'Description'
@@ -36,6 +36,15 @@
           = render 'template1_partial', :template_photo_builder => template_photo_builder
     - elsif @item.name == 'Template2'
       .TemplateArticle
+        %h4.something Template Article Asssociation
+        = f.simple_fields_for :template, @item.template do |template_builder|
+          = render 'template2_partial', :template_builder => template_builder
+      .TemplatePhoto.hide
+        %h4.something Template Photo Asssociation
+        = f.simple_fields_for :template_photo, @item.template_photo do |template_photo_builder|
+          = render 'template1_partial', :template_photo_builder => template_photo_builder
+    - else
+      .TemplateArticle.hide
         %h4.something Template Article Asssociation
         = f.simple_fields_for :template, @item.template do |template_builder|
           = render 'template2_partial', :template_builder => template_builder

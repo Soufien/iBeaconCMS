@@ -6,6 +6,8 @@ class ItemsController < ApplicationController
   # GET /items
   def index
     @items = Item.all
+    @templates = Template.all
+    @template_photos = TemplatePhoto.all
   end
 
   # GET /items/1
@@ -19,6 +21,9 @@ class ItemsController < ApplicationController
     if (@item.name == 'Template1')
       @item.template_photo = TemplatePhoto.new
     elsif (@item.name == 'Template2')
+      @item.template = Template.new
+    else
+      @item.template_photo = TemplatePhoto.new
       @item.template = Template.new
     end
 

@@ -23,5 +23,14 @@
           %li{class: active_class('Template_Wine')}
             = link_to 'template photos', template_photos_path
           %li{class: active_class('Templates')}
-            = link_to 'template wines', template_wines_path
+            = link_to 'Wine List', template_wines_path
         = render 'navbar_login_logout_form'
+.jumbotron
+  .row-fluid
+    %section.col-lg-12
+      .col-sm-offset-2.col-lg-4
+        = button_to('New Beacon', new_beacon_path, :class => 'btn btn-large btn-primary')
+      .col-lg-4
+        = button_to('New Page', new_item_path, :class => 'btn btn-large btn-primary')
+      .col-lg-2
+        = button_to('New Wine', new_template_wine_path, :class => 'btn btn-large btn-primary')

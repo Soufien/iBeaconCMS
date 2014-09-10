@@ -8,4 +8,9 @@ $('#item_name').on('change', function(){
         $('.TemplateArticle').removeClass('hide');
         $('.TemplatePhoto').addClass('hide');
     }
+
+    if ($(this).val() == '' ) {
+        $('.TemplateArticle').addClass('hide');
+        $('.TemplatePhoto').addClass('hide');
+    }
 })

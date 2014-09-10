@@ -14,8 +14,8 @@
         %td= beacon.uuid
         %td= beacon.major
         %td= beacon.minor
-        %td= link_to 'Show', beacon
-        %td= link_to 'Edit', edit_beacon_path(beacon)
-        %td= link_to 'Destroy', beacon, method: :delete, data: { confirm: 'Are you sure?' }
+        -#%td= link_to 'Show', beacon
+        %td= button_to('Edit', edit_beacon_path(beacon), :class => 'btn btn-large btn-primary')
+        %td= button_to('Destroy',beacon, :class => 'btn btn-medium btn-primary', method: :delete, data: { confirm: 'Are you sure?' })
 %br/
-= link_to 'New Beacon', new_beacon_path
+= button_to('New Beacon', new_beacon_path, :class => 'btn btn-large btn-primary')

@@ -6,8 +6,8 @@ class Item < ActiveRecord::Base
   has_one :template_photo
   accepts_nested_attributes_for :template_photo
   has_one :template_wine
-  validates :spec,
-            :name,
-            :presence => true
+  validates :spec,:presence => true
+  validates :name,:presence => {:message => 'Please pick Template Article /Template Photo'}
+
 
 end
