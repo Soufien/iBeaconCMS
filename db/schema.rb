@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908173749) do
+ActiveRecord::Schema.define(version: 20140910090206) do
 
   create_table "apps", force: true do |t|
     t.integer  "user_id"
@@ -164,7 +164,7 @@ ActiveRecord::Schema.define(version: 20140908173749) do
     t.string   "os"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["email", "first_name", "last_name"], name: "index_users_on_email_and_first_name_and_last_name", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
