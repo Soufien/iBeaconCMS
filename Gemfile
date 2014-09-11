@@ -42,6 +42,8 @@ gem 'carrierwave'
 gem 'carrierwave_direct'
 gem 's3_direct_upload'
 
+gem 'aws-sdk'
+
 gem 'nokogiri', '~>1.5.0'
 
 gem 'fog', '~> 1.3.1'
