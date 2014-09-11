@@ -1,6 +1,6 @@
 require 'aws-sdk'
 aws_file = Rails.root.join('config', 'aws.yml')
-if (!aws_file.present?)
+if (aws_file.present?)
   AWS_CONFIG = YAML.load(File.read(aws_file))[Rails.env]
 end
 if !ENV['AWS_ACCESS_KEY_ID'].present?
