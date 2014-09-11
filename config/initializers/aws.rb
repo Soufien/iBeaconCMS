@@ -1,6 +1,7 @@
 aws_file = Rails.root.join('config', 'aws.yml')
-AWS_CONFIG = YAML.load(File.read(aws_file))[Rails.env]
-
+if (!aws_file.present?)
+  AWS_CONFIG = YAML.load(File.read(aws_file))[Rails.env]
+end
 if ENV['AWS_ACCESS_KEY_ID'].present?
   AWS_CONFIG['access_key_id'] = ENV['AWS_ACCESS_KEY_ID']
 end
