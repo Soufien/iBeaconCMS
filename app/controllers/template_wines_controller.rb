@@ -15,6 +15,9 @@ class TemplateWinesController < ApplicationController
   # GET /template_wines/new
   def new
     @template_wine = TemplateWine.new
+    # @uploader = TemplateWine.new.url_image_1
+    # @uploader.success_action_redirect = new_template_wine_url
+
   end
 
   # GET /template_wines/1/edit
