@@ -1,11 +1,12 @@
 development: &development
   access_key_id: <%= ENV['AWS_ACCESS_KEY_ID'] %>
   secret_access_key: <%= ENV['AWS_SECRET_KEY'] %>
-
+  region: <%= ENV['PARAM1'] %>  #Used for the S3 bucket
+  bucket: <%= ENV['PARAM2'] %>
 
 production:
   <<: *development
-
+  bucket: <%= ENV['PARAM2'] %>
 
 test:
   <<: *development
