@@ -34,7 +34,7 @@ json.array!(@beacons) do |beacon|
            json.url_image_2 beacon.item.template.url_image_2.to_s
       end
     end
-    if beacon.item.name === "Template3" && beacon.item.spec == "VINEYARD"
+    if beacon.item.name === "Template3" && beacon.item.spec == "WINE TASTING"
       json.template_wine_list do
         json.array!(@template_wines.vineyard) do |template_wine|
            json.id template_wine.id.to_s
