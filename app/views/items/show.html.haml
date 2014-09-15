@@ -11,16 +11,21 @@
 %p
   %strong Beacon:
   = @item.beacon
-%p
-  %strong Template:
-  = @item.template.name
-%p
-  %strong Name:
-  = @item.template.description_1
-%p
-  %strong Description:
-  = @item.template.photo_link_1
 
+-if (@item.name == 'Template1')
+  %p
+    %strong Description:
+    = @item.template_photo.description
+  %p
+    %strong Photo Link:
+    = @item.template_photo.photolink
+-else
+  %p
+    %strong Description:
+    = @item.template.description_1
+  %p
+    %strong Photo Link:
+    = @item.template.photo_link_1
 
 = link_to 'Edit', edit_item_path(@item)
 

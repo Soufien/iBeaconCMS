@@ -34,9 +34,9 @@ json.array!(@beacons) do |beacon|
            json.url_image_2 beacon.item.template.url_image_2.to_s
       end
     end
-    if beacon.item.name === "Template3"
+    if beacon.item.name === "Template3" && beacon.item.spec == "VINEYARD"
       json.template_wine_list do
-        json.array!(@template_wines) do |template_wine|
+        json.array!(@template_wines.vineyard) do |template_wine|
            json.id template_wine.id.to_s
            json.name template_wine.name.to_s
            json.taste_notes template_wine.taste_notes.to_s
@@ -53,7 +53,28 @@ json.array!(@beacons) do |beacon|
            json.url_image template_wine.url_image_1.to_s
         end
       end
+    else
+      if beacon.item.name === "Template3" && beacon.item.spec == "RETAIL"
+        json.template_wine_list do
+          json.array!(@template_wines) do |template_wine|
+            json.id template_wine.id.to_s
+            json.name template_wine.name.to_s
+            json.taste_notes template_wine.taste_notes.to_s
+            json.price template_wine.price.to_s
+            json.wine_specs_vintage template_wine.wine_specs_vintage.to_s
+            json.wine_specs_sugar template_wine.wine_specs_sugar.to_s
+            json.wine_specs_appellation template_wine.wine_specs_appellation.to_s
+            json.wine_specs_acid template_wine.wine_specs_acid.to_s
+            json.wine_specs_alcohol template_wine.wine_specs_alcohol.to_s
+            json.wine_specs_ph template_wine.wine_specs_ph.to_s
+            json.wine_specs_price_description template_wine.wine_specs_price_description.to_s
+            json.photo_link template_wine.photo_link.to_s
+            json.item_id template_wine.item_id.to_s
+            json.url_image template_wine.url_image_1.to_s
+          end
+        end
+      end
     end
-  end
   json.url beacon_url(beacon, format: :json)
+  end
 end

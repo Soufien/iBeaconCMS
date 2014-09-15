@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910090206) do
+ActiveRecord::Schema.define(version: 20140912204204) do
 
   create_table "apps", force: true do |t|
     t.integer  "user_id"
@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(version: 20140910090206) do
     t.string   "photo_link"
     t.string   "wine_specs_price_description"
     t.string   "url_image_1"
+    t.string   "room_type"
   end
 
   add_index "template_wines", ["item_id"], name: "index_template_wines_on_item_id", using: :btree

@@ -9,7 +9,7 @@ $('#item_name').on('change', function(){
         $('.TemplatePhoto').addClass('hide');
     }
 
-    if ($(this).val() == '' ) {
+    if ($(this).val() == 'Template3' ) {
         $('.TemplateArticle').addClass('hide');
         $('.TemplatePhoto').addClass('hide');
     }
