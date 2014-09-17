@@ -10,8 +10,9 @@ class DetectionsController < ApplicationController
 
   # GET /detections
   def index
-    @detections = Detection.order(:id)
+
     respond_to do |format|
+      @detections =Detection.joins("INNER JOIN users ON users.uid = detections.user_uid").select("detections.*,users.email")
       format.html
       format.csv {send_data @detections.to_csv}
     end
@@ -77,4 +78,7 @@ class DetectionsController < ApplicationController
   def detection_beacon
     params.require(:beacon).permit(:uuid, :major, :minor)
   end
-end
+
+
+
+  end
