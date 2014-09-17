@@ -54,7 +54,7 @@ json.array!(@beacons) do |beacon|
         end
       end
     else
-      if beacon.item.name === "Template3" && beacon.item.spec == "RETAIL"
+      if beacon.item.name === "Template3"
         json.template_wine_list do
           json.array!(@template_wines) do |template_wine|
             json.id template_wine.id.to_s
