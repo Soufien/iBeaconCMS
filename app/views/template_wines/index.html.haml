@@ -10,9 +10,9 @@
       %th Wine Specs Vintage
       %th Wine Specs Sugar
       %th Wine Specs Appellation
-      %th Wine Specs Acid
-      %th Wine Specs Alcohol
-      %th Wine Specs PH
+      -#%th Wine Specs Acid
+      -#%th Wine Specs Alcohol
+      -#%th Wine Specs PH
       %th Wine Specs Price Description
       %th Item Remote Photo link
       %th Item Id
@@ -28,9 +28,9 @@
         %td= template_wine.wine_specs_vintage
         %td= template_wine.wine_specs_sugar
         %td= template_wine.wine_specs_appellation
-        %td= template_wine.wine_specs_acid
-        %td= template_wine.wine_specs_alcohol
-        %td= template_wine.wine_specs_ph
+        -#%td= template_wine.wine_specs_acid
+        -#%td= template_wine.wine_specs_alcohol
+        -#%td= template_wine.wine_specs_ph
         %td= template_wine.wine_specs_price_description
         -if !template_wine.url_image_1.nil?
           %td= image_tag(template_wine.url_image_1)

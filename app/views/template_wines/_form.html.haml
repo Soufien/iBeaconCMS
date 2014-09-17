@@ -8,15 +8,21 @@
       = f.input :wine_specs_sugar
       = f.input :wine_specs_vintage
       = f.input :wine_specs_appellation
-      = f.input :wine_specs_acid
-      = f.input :wine_specs_alcohol
-      = f.input :wine_specs_ph
+      -#= f.input :wine_specs_acid
+      -#= f.input :wine_specs_alcohol
+      -#= f.input :wine_specs_ph
       = f.input :wine_specs_price_description
+      -#room type
+      = f.select :room_type,  [["Choose a room type",""],["vineyard","filter1"],["all","retail"]]
+  %section.row
+    %p
       = f.file_field :url_image_1
     %p
       %label
         Remove url_image_1
         = f.check_box :remove_url_image_1
+
+
       -#= f.association :item
   .form-group
     .col-sm-offset-2.col-sm-10

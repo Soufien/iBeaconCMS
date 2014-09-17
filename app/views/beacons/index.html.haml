@@ -5,7 +5,7 @@
       %th Uuid
       %th Major
       %th Minor
-      %th
+      %th Beacon Location (determined by pages)
       %th
       %th
   %tbody
@@ -14,7 +14,10 @@
         %td= beacon.uuid
         %td= beacon.major
         %td= beacon.minor
+        - if !beacon.item.nil?
+          %td= beacon.item.spec
         -#%td= link_to 'Show', beacon
+
         %td= button_to('Edit', edit_beacon_path(beacon), :class => 'btn btn-large btn-primary')
         %td= button_to('Destroy',beacon, :class => 'btn btn-medium btn-primary', method: :delete, data: { confirm: 'Are you sure?' })
 %br/
