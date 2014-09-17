@@ -49,7 +49,6 @@ json.array!(@beacons) do |beacon|
            json.wine_specs_ph template_wine.wine_specs_ph.to_s
            json.wine_specs_price_description template_wine.wine_specs_price_description.to_s
            json.photo_link template_wine.photo_link.to_s
-           json.item_id template_wine.item_id.to_s
            json.url_image template_wine.url_image_1.to_s
         end
       end
@@ -69,7 +68,6 @@ json.array!(@beacons) do |beacon|
             json.wine_specs_ph template_wine.wine_specs_ph.to_s
             json.wine_specs_price_description template_wine.wine_specs_price_description.to_s
             json.photo_link template_wine.photo_link.to_s
-            json.item_id template_wine.item_id.to_s
             json.url_image template_wine.url_image_1.to_s
           end
         end
