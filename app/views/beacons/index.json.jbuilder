@@ -71,6 +71,7 @@ json.array!(@beacons) do |beacon|
               json.wine_specs_price_description template_wine.wine_specs_price_description.to_s
               json.photo_link template_wine.photo_link.to_s
               json.url_image template_wine.url_image_1.to_s
+              json.room_type template_wine.room_type.to_s
             end
           end
         end
