@@ -14,8 +14,7 @@
         %td= beacon.uuid
         %td= beacon.major
         %td= beacon.minor
-        - if !beacon.item.nil?
-          %td= beacon.item.spec
+        %td= beacon.location
         -#%td= link_to 'Show', beacon
 
         %td= button_to('Edit', edit_beacon_path(beacon), :class => 'btn btn-large btn-primary')

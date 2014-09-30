@@ -14,7 +14,7 @@
   %tbody
     - @items.each do |item|
       %tr
-        %td= item.spec
+        %td= item.beacon.location
         %td= item.name
         - if item.name == 'Template1'
           %td= item.template_photo.description

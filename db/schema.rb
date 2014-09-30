@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140912204204) do
+ActiveRecord::Schema.define(version: 20140918044509) do
 
   create_table "apps", force: true do |t|
     t.integer  "user_id"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20140912204204) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "app_id"
+    t.string   "location"
   end
 
   add_index "beacons", ["uuid", "major", "minor"], name: "index_beacons_on_uuid_and_major_and_minor", unique: true, using: :btree
