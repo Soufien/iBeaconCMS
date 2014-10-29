@@ -67,7 +67,7 @@ json.array!(@beacons) do |beacon|
               json.wine_specs_appellation template_wine.wine_specs_appellation.to_s
               # json.wine_specs_acid template_wine.wine_specs_acid.to_s
               # json.wine_specs_alcohol template_wine.wine_specs_alcohol.to_s
-              json.wine_specs_ph template_wine.sort_order.to_s
+              json.wine_specs_ph template_wine.sort_column.to_s
               json.wine_specs_price_description template_wine.wine_specs_price_description.to_s
               json.photo_link template_wine.photo_link.to_s
               json.url_image template_wine.url_image_1.to_s
