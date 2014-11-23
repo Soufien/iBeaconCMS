@@ -34,6 +34,8 @@ gem 'haml'
 
 gem 'mysql2'
 
+gem 'pg'
+
 gem 'turbolinks'
 
 gem 'jbuilder'
